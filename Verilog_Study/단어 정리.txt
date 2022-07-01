@@ -1,9 +1,0 @@
-for the sake of ~을 위해
-emergence 출현
-concurrency 동시실행
-in terms of ~의 관점에서
-compliance 준수
-implement 실행하다
-onward ~부로 계속
-abstraction 관념
-invoke 적용하다
