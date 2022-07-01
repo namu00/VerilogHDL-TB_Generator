@@ -8,7 +8,6 @@ b = [1,2,3,4]
 #1. 특정 값 검색
 30 in a  #(결과) True
 110 in a #(결과) False
-
 30 not in a  #(결과) False
 110 not in a #(결과) True
 
