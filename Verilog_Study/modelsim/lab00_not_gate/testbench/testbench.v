@@ -25,8 +25,7 @@ module testbench();
         #10 $display("%t ns: %b - %b", $time, in, out);
         #10 $display("%t ns: %b - %b", $time, in, out);
         #10 $display("%t ns: %b - %b", $time, in, out);
-	      #10;
-        $stop;
+	    #10; $stop;
     end
 
 endmodule

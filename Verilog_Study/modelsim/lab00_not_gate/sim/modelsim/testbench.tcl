@@ -22,4 +22,4 @@ vsim work.testbench -Lf 220model -Lf altera_mf_ver -Lf verilog -Lf cycloneive_ve
 # show waveforms specified in wave.do
 # do wave.do
 # advance the simulation the desired amount of time
-#run 120 ns
+# run 120 ns
