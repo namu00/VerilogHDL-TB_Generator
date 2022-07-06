@@ -1,0 +1,55 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/skagn/Desktop/Summer_python/2022-Summer/Verilog_Study/modelsim/lab00_not_gate/sim/modelsim
+vnot_gate
+Z1 !s110 1657093555
+!i10b 1
+!s100 `<:QLb7gOdK@W^XEb@BL42
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+ITI5gU4L8nDTD4g56DBE]<3
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z4 w1657091672
+8../../src/rtl/not_gate.v
+F../../src/rtl/not_gate.v
+!i122 1
+L0 3 11
+Z5 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z6 !s108 1657093555.000000
+!s107 ../../testbench/testbench.v|../../src/rtl/not_gate.v|
+Z7 !s90 -reportprogress|300|-f|run.f|
+!i113 1
+Z8 tCvgOpt 0
+vtestbench
+R1
+!i10b 1
+!s100 VD?=?P2M6Omz;VzJT<j=60
+R2
+IK8:4ZL?c[hgY33b09]QZT2
+R3
+R0
+R4
+8../../testbench/testbench.v
+F../../testbench/testbench.v
+!i122 1
+L0 3 30
+R5
+r1
+!s85 0
+31
+R6
+Z9 !s107 ../../testbench/testbench.v|../../src/rtl/not_gate.v|
+R7
+!i113 1
+R8
