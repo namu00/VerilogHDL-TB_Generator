@@ -3,5 +3,13 @@ module xnor_gate(a, b, out);
     input b;
     output out;
 
-    assign out = (~a && ~b) || (a && b);
+    wire xor_result;
+
+    xor_gate unit_0(
+                    .a(a),
+                    .b(b),
+                    .out(xor_result)
+    );
+    assign out = ~xor_result;
+
 endmodule
