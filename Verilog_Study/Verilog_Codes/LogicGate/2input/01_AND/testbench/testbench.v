@@ -12,4 +12,5 @@ module testbench();
         #10; a = 1'b1; b = 1'b1;
         #10 $stop;
     end
+
 endmodule
