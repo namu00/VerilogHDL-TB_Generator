@@ -1,0 +1,55 @@
+m255
+K4
+z2
+!s11f MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/skagn/Desktop/2022-Summer/Verilog_Study/Verilog_Codes/Combinational_Logic/09_parity_checker/sim/modelsim
+vparity_checker
+Z1 !s110 1657763748
+!i10b 1
+!s100 0ez2`G@DXi=fP:eRPEXMI1
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+Ica979z]WRQ<z7lHcS?^;>3
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1657763707
+8../../src/rtl/parity_check.v
+F../../src/rtl/parity_check.v
+!i122 6
+L0 1 23
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1657763748.000000
+!s107 ../../testbench/testbench.v|../../src/rtl/parity_check.v|
+Z6 !s90 -reportprogress|300|-f|run.f|
+!i113 1
+Z7 tCvgOpt 0
+vtestbench
+R1
+!i10b 1
+!s100 VCg?a@]UdfMBgFILcW[B31
+R2
+IY@H0C>DnE=G=:HM;4>Kme0
+R3
+R0
+w1657763743
+8../../testbench/testbench.v
+F../../testbench/testbench.v
+!i122 6
+L0 1 29
+R4
+r1
+!s85 0
+31
+R5
+Z8 !s107 ../../testbench/testbench.v|../../src/rtl/parity_check.v|
+R6
+!i113 1
+R7
