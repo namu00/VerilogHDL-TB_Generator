@@ -1,0 +1,55 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/skagn/Desktop/2022-Summer/Verilog_Study/Verilog_Codes/Combinational_Logic/08_parity_gen/sim/modelsim
+vparity_gen
+Z1 !s110 1657762657
+!i10b 1
+!s100 4kPbh:KQHWoiMJok9L;4_3
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I>BX?Bg9;]^ZKWeAT4A5853
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1657762652
+8../../src/rtl/parity_gen.v
+F../../src/rtl/parity_gen.v
+!i122 14
+L0 1 20
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1657762657.000000
+!s107 ../../testbench/testbench.v|../../src/rtl/parity_gen.v|
+Z6 !s90 -reportprogress|300|-f|run.f|
+!i113 1
+Z7 tCvgOpt 0
+vtestbench
+R1
+!i10b 1
+!s100 :_`CABPjhfz7Xg`:YU3Wn0
+R2
+I;>mD6;FB[IRW3lWE7bk`G1
+R3
+R0
+w1657762592
+8../../testbench/testbench.v
+F../../testbench/testbench.v
+!i122 14
+L0 1 27
+R4
+r1
+!s85 0
+31
+R5
+Z8 !s107 ../../testbench/testbench.v|../../src/rtl/parity_gen.v|
+R6
+!i113 1
+R7
