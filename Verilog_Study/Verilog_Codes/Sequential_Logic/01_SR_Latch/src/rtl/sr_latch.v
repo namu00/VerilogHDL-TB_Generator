@@ -4,8 +4,9 @@ module sr_latch(s,r,out);
     output reg out;
 
     assign out = 1'b0;
+    //initialize 
 
-    always@(s,r)begin
+    always@(s or r)begin
         if (s == 1'b1 && r == 1'b0 ) 
             out = 1'b1;
         else if (r == 1'b1 && s == 1'b0) 
