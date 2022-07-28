@@ -1,0 +1,77 @@
+m255
+K4
+z2
+!s11f MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/skagn/Desktop/2022-Summer/Verilog_Study/Verilog_Codes/Sequential_Logic/03_Counter/03_Register/01_Serial_IO/sim/modelsim
+vdff
+Z1 !s110 1658991754
+!i10b 1
+!s100 DN]O]QjEC9V<DkcDXg[K93
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IImLj19jUC_NB0P67]^QBo2
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1658991458
+8../../src/rtl/dff.v
+F../../src/rtl/dff.v
+!i122 6
+L0 1 11
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1658991754.000000
+!s107 ../../testbench/testbench.v|../../src/rtl/siso.v|../../src/rtl/dff.v|
+Z6 !s90 -reportprogress|300|-f|run.f|
+!i113 1
+Z7 tCvgOpt 0
+vsiso
+R1
+!i10b 1
+!s100 GK=<YD4c;llDXNTmmX=MG1
+R2
+I36TO2UaN4:IU6hO?YjCND3
+R3
+R0
+w1658991704
+8../../src/rtl/siso.v
+F../../src/rtl/siso.v
+!i122 6
+L0 1 37
+R4
+r1
+!s85 0
+31
+R5
+Z8 !s107 ../../testbench/testbench.v|../../src/rtl/siso.v|../../src/rtl/dff.v|
+R6
+!i113 1
+R7
+vtestbench
+R1
+!i10b 1
+!s100 B7k3VXz<Tk2EhYb1dQd2X0
+R2
+Imi@0`7lbzIe<jXKXbQ39b2
+R3
+R0
+w1658991710
+8../../testbench/testbench.v
+F../../testbench/testbench.v
+!i122 6
+L0 1 26
+R4
+r1
+!s85 0
+31
+R5
+R8
+R6
+!i113 1
+R7
