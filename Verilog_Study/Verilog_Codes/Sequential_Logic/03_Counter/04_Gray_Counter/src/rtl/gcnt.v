@@ -50,7 +50,7 @@ module gray_gen(data, gray_out);
 
     integer i;
 
-    always@(*) begin
+    always@(data or gray_out) begin
         for(i = 3; i >= 0; i =  i - 1) begin
             if(i == 3) gray_out[i] = data[i];
             else gray_out[i] = (data[(i+1)] ^ data[i]);
