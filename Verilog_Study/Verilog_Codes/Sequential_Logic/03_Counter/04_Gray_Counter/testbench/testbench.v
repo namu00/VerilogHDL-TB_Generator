@@ -24,7 +24,6 @@ module testbench();
 endmodule
 
 /*
-
 ===========GrayCode Table===========
 Origin    |  Gray     |   Gray
  Data     |  Code     |   Code
