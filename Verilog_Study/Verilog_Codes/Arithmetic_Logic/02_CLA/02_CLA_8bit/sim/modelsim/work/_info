@@ -1,0 +1,121 @@
+m255
+K4
+z2
+!s11f MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/skagn/Desktop/2022-Summer/Verilog_Study/Verilog_Codes/Arithmetic_Logic/02_CLA/01_CLA_4bit/sim/modelsim
+vadder
+Z0 !s110 1659185014
+!i10b 1
+!s100 cNL>X=ELioPGo92fJ?VKm1
+Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IddGJ36JX5h4SH=VJXNiG<3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 dC:/Users/skagn/Desktop/2022-Summer/Verilog_Study/Verilog_Codes/Arithmetic_Logic/02_CLA/02_CLA_8bit/sim/modelsim
+Z4 w1659184026
+Z5 8../../src/rtl/cla_4bit.v
+Z6 F../../src/rtl/cla_4bit.v
+!i122 7
+L0 84 9
+Z7 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z8 !s108 1659185014.000000
+!s107 ../../testbench/testbench.v|../../src/rtl/cla_8bit.v|../../src/rtl/cla_4bit.v|
+Z9 !s90 -reportprogress|300|-f|run.f|
+!i113 1
+Z10 tCvgOpt 0
+vcla_4bit
+R0
+!i10b 1
+!s100 Id3<6JMUS3mNjb]f[kaH=1
+R1
+I3C3hB[QK3kaJ<H@E]H20T3
+R2
+R3
+R4
+R5
+R6
+!i122 7
+L0 1 46
+R7
+r1
+!s85 0
+31
+R8
+Z11 !s107 ../../testbench/testbench.v|../../src/rtl/cla_8bit.v|../../src/rtl/cla_4bit.v|
+R9
+!i113 1
+R10
+vcla_8bit
+R0
+!i10b 1
+!s100 ZbR^=>l2WMz`f=aJ2N2[31
+R1
+I1^<Z3_2ENCKT0Oo3MbLQ60
+R2
+R3
+w1659184864
+8../../src/rtl/cla_8bit.v
+F../../src/rtl/cla_8bit.v
+!i122 7
+Z12 L0 1 25
+R7
+r1
+!s85 0
+31
+R8
+R11
+R9
+!i113 1
+R10
+vclb
+R0
+!i10b 1
+!s100 V<kiBEKZ@9jV[U:62MnC<0
+R1
+ICW^Hf7<0aAB;`dR]6HXBJ2
+R2
+R3
+R4
+R5
+R6
+!i122 7
+L0 48 35
+R7
+r1
+!s85 0
+31
+R8
+R11
+R9
+!i113 1
+R10
+vtestbench
+R0
+!i10b 1
+!s100 ^>0e88ie7NiVboFz@UlgD0
+R1
+Ion]klN`PYH?5laLAlH>U]2
+R2
+R3
+w1659185002
+8../../testbench/testbench.v
+F../../testbench/testbench.v
+!i122 7
+R12
+R7
+r1
+!s85 0
+31
+R8
+R11
+R9
+!i113 1
+R10
