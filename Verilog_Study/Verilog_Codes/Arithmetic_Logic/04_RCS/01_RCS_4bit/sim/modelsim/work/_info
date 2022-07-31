@@ -1,0 +1,77 @@
+m255
+K4
+z2
+!s11f MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/skagn/Desktop/2022-Summer/Verilog_Study/Verilog_Codes/Arithmetic_Logic/04_RCS/01_RCS_4bit/sim/modelsim
+vfull_subtract
+Z1 !s110 1659237414
+!i10b 1
+!s100 f^cGkF7M0dH96SHUU=:>80
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+Ib=2jj9:eg@BIKJ_QOa5oE3
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z4 w1659237358
+Z5 8../../src/rtl/rcs_4bit.v
+Z6 F../../src/rtl/rcs_4bit.v
+!i122 5
+L0 44 13
+Z7 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z8 !s108 1659237414.000000
+!s107 ../../testbench/testbench.v|../../src/rtl/rcs_4bit.v|
+Z9 !s90 -reportprogress|300|-f|run.f|
+!i113 1
+Z10 tCvgOpt 0
+vrcs_4bit
+R1
+!i10b 1
+!s100 do03Xb3EXdkkU<gozegbX1
+R2
+IK:j1kdEHeBE=2434EbUSD2
+R3
+R0
+R4
+R5
+R6
+!i122 5
+L0 1 42
+R7
+r1
+!s85 0
+31
+R8
+Z11 !s107 ../../testbench/testbench.v|../../src/rtl/rcs_4bit.v|
+R9
+!i113 1
+R10
+vtestbench
+R1
+!i10b 1
+!s100 ATfRHfLclXX3X=4UEI9M;3
+R2
+Ig>i[LhXmff<d14EOe5W_Q2
+R3
+R0
+w1659237407
+8../../testbench/testbench.v
+F../../testbench/testbench.v
+!i122 5
+L0 1 28
+R7
+r1
+!s85 0
+31
+R8
+R11
+R9
+!i113 1
+R10
