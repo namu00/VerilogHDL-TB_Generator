@@ -1,2 +1,2 @@
-../../src/rtl/rca_4bit.v
+../../src/rtl/rca_04bit.v
 ../../testbench/testbench.v
