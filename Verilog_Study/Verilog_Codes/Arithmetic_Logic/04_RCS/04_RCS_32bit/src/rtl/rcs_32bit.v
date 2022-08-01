@@ -1,4 +1,4 @@
-module rcs_16bit(a, b, sum, carry_start, carry);
+module rcs_32bit(a, b, sum, carry_start, carry);
     input [31:0] a, b;
     input carry_start;
     output [31:0] sum;
@@ -6,7 +6,7 @@ module rcs_16bit(a, b, sum, carry_start, carry);
 
     wire borrow;
 
-    rcs_8bit unit_0(
+    rcs_16bit unit_0(
         .a(a[15:0]),
         .b(b[15:0]),
         .sum(sum[15:0]),
@@ -14,7 +14,7 @@ module rcs_16bit(a, b, sum, carry_start, carry);
         .carry(borrow)
     );
 
-    rcs_8bit unit_1(
+    rcs_16bit unit_1(
         .a(a[31:16]),
         .b(b[31:16]),
         .sum(sum[31:16]),
