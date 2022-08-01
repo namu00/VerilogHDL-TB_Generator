@@ -55,7 +55,7 @@ module full_adder(a, b, c_in, sum, c_out);
     //Carry_OUT
     and carry0 (c1, a, b); //A AND B
     xor carry1 (c2, a, b); 
-    and carry2 (c3, c2, c_in); // (A ^ B) AND C_in
+    and carry2 (c3, c2, c_in); // (A ^ B) & C_in
     or carry3 (c_out, c1, c3); // (A&B) + (A ^ B)&C_in
 
     //SUM
