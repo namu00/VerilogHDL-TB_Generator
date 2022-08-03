@@ -1,3 +1,2 @@
-../../src/rtl/dff.v
-../../src/rtl/sipo.v
+../../src/rtl/filename
 ../../testbench/testbench.v

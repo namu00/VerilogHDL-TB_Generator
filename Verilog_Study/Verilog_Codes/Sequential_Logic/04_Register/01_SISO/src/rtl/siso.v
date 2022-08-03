@@ -1,37 +1,14 @@
-module siso(clk, rst, data, out);
-    input clk;
-    input rst;
-    input data;
-    output out;
+module siso (clk, rst, shift, in, out);
+    input clk, rst, shift, in;
+    output reg out;
 
-    wire [3:0] q;
+    reg [3:0] d_ff;
 
-    dff unit_3(
-        .clk(clk),
-        .rst(rst),
-        .d(data),
-        .out(q[3])
-    );
-
-    dff unit_2(
-        .clk(clk),
-        .rst(rst),
-        .d(q[3]),
-        .out(q[2])
-    );
-
-    dff unit_1(
-        .clk(clk),
-        .rst(rst),
-        .d(q[2]),
-        .out(q[1])
-    );
-
-    dff unit_0(
-        .clk(clk),
-        .rst(rst),
-        .d(q[1]),
-        .out(q[0])
-    );
-    assign out = q[0];
-endmodule
+    always @ (posedge clk, negedge rst) begin
+        if(!rst) {out,d_ff} <= {1'b0,4'b0};
+        else begin
+            if(shift) {out, d_ff[3:1], d_ff[0]} <= {d_ff[3], d_ff[2:0], in};
+            else {out, d_ff} <= {d_ff[3],d_ff};
+        end
+    end
+endmodule 
