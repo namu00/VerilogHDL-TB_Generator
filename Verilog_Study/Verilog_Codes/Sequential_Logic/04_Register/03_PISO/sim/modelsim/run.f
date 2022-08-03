@@ -1,2 +1,2 @@
-../../src/rtl/sipo.v
+../../src/rtl/piso.v
 ../../testbench/testbench.v
