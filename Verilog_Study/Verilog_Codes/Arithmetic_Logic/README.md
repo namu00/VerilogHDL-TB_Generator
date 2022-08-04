@@ -1,7 +1,4 @@
-RCA : Ripple-Carry Adder  
-CLA : Carry-Lookahead Adder  
-TCS : Twos Complement Subtractor  
-RCS : Ripple-Carry Subtractor  
-CLS : Carry-Lookahead Subtractor
-  
-SAM : Sequential Add-Shift Multiplicator
+Directory               | Description  
+------------------------|---------------------------  
+01_Ripple_Carry_AS      | Ripple Carry Adder/Subtractor  
+02_Carry_Look-Ahead_AS  | Carry Look-Ahead Adder/Subtractor  
