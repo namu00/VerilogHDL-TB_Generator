@@ -14,12 +14,8 @@ module testbench();
     integer i,k;
     initial begin 
         for(i = 0; i < 16; i = i + 1)begin
-            a = i; 
-            for(k = 0; k < 16; k = k + 1)begin
-                b = k; 
-                #5;
+            a = i; b = i; #1;
             end
-        end
         $stop;
     end
 endmodule

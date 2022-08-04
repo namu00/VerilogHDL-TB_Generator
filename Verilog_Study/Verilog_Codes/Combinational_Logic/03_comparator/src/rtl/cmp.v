@@ -1,6 +1,6 @@
 module cmp(a,b,eq,neq,big_a,big_b);
-    input [3:0] a; //target1
-    input [3:0] b; //target2
+    input a; //target1
+    input b; //target2
 
     output reg eq; //equal flag
     output reg neq; //not equal flag

@@ -1,6 +1,6 @@
 module testbench();
-    reg [3:0] a;
-    reg [3:0] b;
+    reg a;
+    reg b;
 
     wire eq,neq;
     wire big_a,big_b;
@@ -14,16 +14,11 @@ module testbench();
         .big_b(big_b)
     );
 
-    integer i,k;
-
     initial begin
-        for (i = 0; i < 16; i = i + 1)begin
-            a = i;
-            for(k = 0; k < 16; k = k + 1)begin
-                b = k;
-                #5;
-            end
-        end
+        a = 1'b0; b = 1'b0; #5;
+        a = 1'b0; b = 1'b1; #5;
+        a = 1'b1; b = 1'b0; #5;
+        a = 1'b1; b = 1'b1; #5; 
         $stop;
     end
 endmodule
