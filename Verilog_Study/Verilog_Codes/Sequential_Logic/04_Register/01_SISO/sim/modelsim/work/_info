@@ -10,23 +10,23 @@ z2
 cModel Technology
 Z0 dC:/Users/skagn/Desktop/2022-Summer/Verilog_Study/Verilog_Codes/Sequential_Logic/04_Register/01_SISO/sim/modelsim
 vsiso
-Z1 !s110 1659534706
+Z1 !s110 1659593023
 !i10b 1
-!s100 Dc4B8e8geAJ9eC6<aQb2k2
+!s100 =:cTH]I`_R7Tf]^R_lHS=1
 Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
-I=Z2<QXh9L]nP^Zj:hYXdF2
+IL<UDBL;<jZH`4WDb1[Ecf1
 Z3 VDg1SIo80bB@j0V0VzS_@n1
 R0
-w1659534699
+w1659593021
 8../../src/rtl/siso.v
 F../../src/rtl/siso.v
-!i122 21
-L0 1 14
+!i122 23
+L0 1 16
 Z4 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z5 !s108 1659534706.000000
+Z5 !s108 1659593023.000000
 !s107 ../../testbench/testbench.v|../../src/rtl/siso.v|
 Z6 !s90 -reportprogress|300|-f|run.f|
 !i113 1
@@ -42,7 +42,7 @@ R0
 w1659512068
 8../../testbench/testbench.v
 F../../testbench/testbench.v
-!i122 21
+!i122 23
 L0 3 26
 R4
 r1
