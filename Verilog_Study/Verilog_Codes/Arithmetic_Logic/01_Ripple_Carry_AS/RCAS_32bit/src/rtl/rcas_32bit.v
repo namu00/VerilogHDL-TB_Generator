@@ -1,4 +1,4 @@
-module rcas_16bit(a, b, sel, result, c_out);
+module rcas_32bit(a, b, sel, result, c_out);
     input [31:0] a,b;
     input sel;
     output [31:0] result;
