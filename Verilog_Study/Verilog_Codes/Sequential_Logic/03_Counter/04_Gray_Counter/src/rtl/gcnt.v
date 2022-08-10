@@ -1,7 +1,6 @@
 //TOP MODULE BELLOW
 module gcnt(clk, rst, trig, count_out);
-    input clk, rst, trig;
-    //trig == Order Trigger
+    input clk, rst, trig; //trig: Order Trigger
     //trig 0 == UP_Counter
     //trig 1 == DOWN_Counter
 
