@@ -1,6 +1,6 @@
 # 2022 Summer Study  
 + ### Final Goal
-    >Making *Testbench Generator* Using *Python*
+    >Making __*Testbench Generator*__ Using __*Python*__
 
 + ### Directory Information
 
