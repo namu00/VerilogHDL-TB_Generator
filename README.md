@@ -1,4 +1,3 @@
 # 2022 Summer Study  
-+ ## Making *Testbench Generator* Using *Python* (__Final Project__)
-+ ## Verilog Study
-+ ## Python Study
++ Final Goal
+    >Making *Testbench Generator* Using *Python*
