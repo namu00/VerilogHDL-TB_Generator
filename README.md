@@ -7,6 +7,6 @@
     Directory          |         Description
     -------------------|----------------------------
     Guides             | Guides about Using ModelSim
-    Presentation       | PowerPoing files for Presentation
+    Presentation       | Presentation files
     Study              | Verilog & Python Study Directory
     Testbench_Generator| Main Project Directory
