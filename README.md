@@ -1,6 +1,10 @@
 # 2022-Summer
 Here is CodeSpace for 2022 Summer Study  
 
-Final Goal              | Making Testbench Generator Using Python
+Main Project Directory
 ----------------------------------------------------
-Main Project Directory  | Testbench
+Testbench_Generator
+
+Final Goal 
+----------------------------------------------------
+Making Testbench Generator Using Python
