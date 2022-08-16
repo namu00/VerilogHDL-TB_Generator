@@ -1,8 +1,8 @@
 {signal:[
-  {name:'a', wave:'hl..'},
-  {name:'b', wave:'lhl.'},
-  {name:'c', wave:'l.hl'},
-  {name:'d', wave:'l..h'},
+  {name:"a", wave:"hl.."},
+  {name:"b", wave:"lhl."},
+  {name:"c", wave:"l.hl"},
+  {name:"d", wave:"l..h"},
   {},
-  {name:'out',wave:'====',data:["00","01","10","11"]}
+  {name:"out",wave:"====",data:["00","01","10","11"]}
 ]}

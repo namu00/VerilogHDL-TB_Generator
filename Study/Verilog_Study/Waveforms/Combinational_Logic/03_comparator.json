@@ -1,8 +1,8 @@
 {signal:[
-  {name: "a", wave: 'l.h.'},
-  {name: "b", wave: 'lhlh'},
+  {name: "a", wave: "l.h."},
+  {name: "b", wave: "lhlh"},
   {},
-  {name: 'eq', wave:'hl.h'},
-  {name: 'neq', wave: 'lh.l'},
-  {name: 'big_a', wave: 'l.hl'},
-  {name: 'big_b', wave: 'lhl.'}]}
+  {name: "eq", wave:"hl.h"},
+  {name: "neq", wave: "lh.l"},
+  {name: "big_a", wave: "l.hl"},
+  {name: "big_b", wave: "lhl."}]}
