@@ -4,8 +4,8 @@
 
 + ### Directory Information
 
-    |<center>Directory</center>|<center>Description</center> |
-    |-----------------------|----------------------------       |
+    |Directory|Description|
+    |-----------------------|-----------------------------------|
     |Guides                 | Guides about Using ModelSim       |
     |Presentation           | Presentation files                |
     |Study                  | Verilog & Python Study Directory  |
