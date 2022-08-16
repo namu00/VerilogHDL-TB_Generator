@@ -1,15 +1,15 @@
 {signal:
  [
-  ['2input  NAND',
-  ['input',
-   {name:'input_a', wave:'l.h.'},
-   {name:'input_b', wave:'lhlh'} 
+  ["2input  NAND",
+  ["input",
+   {name:"input_a", wave:"l.h."},
+   {name:"input_b", wave:"lhlh"} 
   ],
    
   {},
    
-  ['out',
-   {name:'out', wave:'h..l'}
+  ["out",
+   {name:"out", wave:"h..l"}
   ]
    
   ]

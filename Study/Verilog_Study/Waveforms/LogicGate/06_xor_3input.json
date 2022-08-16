@@ -1,16 +1,16 @@
 {signal:
  [
-  ['3input  XOR',
-  ['input',
-   {name:'input_a', wave:'l...h...'},
-   {name:'input_b', wave:'l.h.l.h.'},
-   {name:'input_c', wave:'lhlhlhlh'}
+  ["3input  XOR",
+  ["input",
+   {name:"input_a", wave:"l...h..."},
+   {name:"input_b", wave:"l.h.l.h."},
+   {name:"input_c", wave:"lhlhlhlh"}
   ],
    
   {},
    
-  ['out',
-   {name:'out', wave:'lh.lhl.h'}
+  ["out",
+   {name:"out", wave:"lh.lhl.h"}
   ]
    
   ]

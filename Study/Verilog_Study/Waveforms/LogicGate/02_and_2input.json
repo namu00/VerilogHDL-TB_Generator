@@ -1,9 +1,9 @@
 {signal:
  [
-  ['2input  AND',
-  ['input', {name:'input_a', wave:'l.h.'}, {name:'input_b', wave:'lhlh'} ], 
+  ["2input  AND",
+  ["input", {name:"input_a", wave:"l.h."}, {name:"input_b", wave:"lhlh"} ], 
   {},
-  ['out', {name:'out', wave:'l..h'}]
+  ["out", {name:"out", wave:"l..h"}]
   ]
  ]
 }
