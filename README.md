@@ -4,7 +4,7 @@
 
 + ### Directory Information
 
-    |<center>Directory </center>|<center> Description </center> |
+    |<center>Directory</center>|<center>Description</center> |
     |-----------------------|----------------------------       |
     |Guides                 | Guides about Using ModelSim       |
     |Presentation           | Presentation files                |
