@@ -4,8 +4,9 @@
 
 + ### Directory Information
 
-    | Directory | Description |  
-    |Guides                 | Guides about Using ModelSim       |  
-    |Presentation           | Presentation files                |  
-    |Study                  | Verilog & Python Study Directory  |  
-    |**Testbench_Generator**| Main Project Directory            |  
+    |<center>Directory </center>|<center> Description </center> |
+    |-----------------------|----------------------------       |
+    |Guides                 | Guides about Using ModelSim       |
+    |Presentation           | Presentation files                |
+    |Study                  | Verilog & Python Study Directory  |
+    |**Testbench_Generator**| Main Project Directory            |
