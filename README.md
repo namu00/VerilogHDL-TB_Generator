@@ -3,10 +3,8 @@
     >Making *Testbench Generator* Using *Python*
 
 + ### Directory Information
-    |:---:|:---:|
-    |Directory              |         Description               |
-    |-----------------------|----------------------------|
-    |:---|:---|
+
+    |Directory|Description|
     |Guides                 | Guides about Using ModelSim       |
     |Presentation           | Presentation files                |
     |Study                  | Verilog & Python Study Directory  |
