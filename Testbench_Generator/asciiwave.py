@@ -184,6 +184,9 @@ def render_signal(wave, data, charwidth, graphics_map):
 		for c in "=2345":
 			render_signal.handlers[c] = cmd_bus
 		for c in "xXzZ":
+      
+      
+      
 			render_signal.handlers[c] = cmd_other
 		render_signal.handlers["|"] = cmd_separator
 	assert(charwidth >=4 and charwidth % 2 == 0)
