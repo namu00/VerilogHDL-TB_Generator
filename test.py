@@ -1,6 +1,11 @@
-fp = open("test.py",'r')
+import re
+
+fp = open("test.txt",'r')
 data = fp.readlines()
 fp.close()
 
-print(type(data))
-print(data[0])
+for str in data:
+    temp = str
+    temp = temp.replace(";","")
+    temp = temp.split(" ")
+    print(temp[-1])
