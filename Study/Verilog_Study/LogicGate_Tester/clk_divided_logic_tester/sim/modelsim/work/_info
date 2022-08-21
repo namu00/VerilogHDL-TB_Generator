@@ -10,23 +10,23 @@ z2
 cModel Technology
 dC:/Users/skagn/Desktop/2022-Summer/Study/LogicGate_Tester/2input_gate_tester/sim/modelsim
 vand_2input
-Z0 !s110 1660720224
+Z0 !s110 1661069195
 !i10b 1
-!s100 OK;S@NdENA1=KB::ooZHO0
+!s100 ]z6AM6P4m9M[V`O@5ZPgH3
 Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
-IWF]E;@0AR>]:0f]8OBA_@0
+I`j<<ZA3g;DalcF5TD5WNn3
 Z2 VDg1SIo80bB@j0V0VzS_@n1
-Z3 dC:/Users/skagn/Desktop/2022-Summer/Study/LogicGate_Tester/2input_clk_delay_tester/sim/modelsim
-Z4 w1660715697
+Z3 dC:/Users/skagn/Desktop/VerilogHDL-TB_Generator/Study/Verilog_Study/LogicGate_Tester/clk_divided_logic_tester/sim/modelsim
+Z4 w1661069191
 Z5 8../../testbench/testbench.v
 Z6 F../../testbench/testbench.v
-!i122 58
-L0 1 7
+!i122 77
+L0 2 7
 Z7 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z8 !s108 1660720224.000000
+Z8 !s108 1661069195.000000
 Z9 !s107 ../../testbench/testbench.v|../../src/rtl/tv_gen.v|
 Z10 !s90 -reportprogress|300|-f|run.f|
 !i113 1
@@ -38,7 +38,7 @@ vbcnt
 R1
 IZ?VYOPA=e4[iBzeangdon3
 R2
-R3
+dC:/Users/skagn/Desktop/2022-Summer/Study/LogicGate_Tester/2input_clk_delay_tester/sim/modelsim
 w1660716759
 Z12 8../../src/rtl/tv_gen.v
 Z13 F../../src/rtl/tv_gen.v
@@ -56,16 +56,16 @@ R11
 vclk_counter
 R0
 !i10b 1
-!s100 @_M2gV[ZGPG9`gK37<2B?3
+!s100 djIgIZo1;lh^dFY_IgLGD0
 R1
-I]Cn1jdzjP?U9^@=W@_k5U0
+Ih`hkK7M^A;3oROTe4fdP;1
 R2
 R3
-Z14 w1660720112
+Z14 w1661069131
 R12
 R13
-!i122 58
-L0 61 27
+!i122 77
+L0 73 36
 R7
 r1
 !s85 0
@@ -78,16 +78,16 @@ R11
 vtestbench
 R0
 !i10b 1
-!s100 5`XWX<lU2>?icT0OKFkCz2
+!s100 nn`6GiG>IS^ORLh[Zg:cE0
 R1
-Id5m=N8R0ccM3lnoCb5W0k3
+IZ@fIS]RZn<AB2gb`<3K8K1
 R2
 R3
 R4
 R5
 R6
-!i122 58
-L0 9 27
+!i122 77
+L0 10 27
 R7
 r1
 !s85 0
@@ -100,16 +100,16 @@ R11
 vtv_gen
 R0
 !i10b 1
-!s100 4bhk3KBXWTB>e8biaPJol3
+!s100 A>m=Y3KDdMWHQSBJ0nYm01
 R1
-I4]Z[l`RRS3A>M`48_ZD6Z3
+ISjAakh[KKRhGam`PIOZij3
 R2
 R3
 R14
 R12
 R13
-!i122 58
-L0 1 59
+!i122 77
+L0 8 64
 R7
 r1
 !s85 0

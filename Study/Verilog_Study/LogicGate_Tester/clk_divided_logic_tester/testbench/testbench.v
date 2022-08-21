@@ -1,3 +1,4 @@
+`timescale 1ms/1ms
 module and_2input(in1, in0, out);
     input in1;
     input in0;
@@ -15,7 +16,7 @@ module testbench();
     initial begin
         clk = 1'b0; rst = 1'b0;
         #1; rst = 1'b1;
-        #100; $stop;
+        #100000; #100000; #100000; $stop;
     end
 
     always #1 clk = ~clk;
