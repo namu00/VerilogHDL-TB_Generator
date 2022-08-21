@@ -17,7 +17,7 @@ module tv_gen(clk, rst, in0,in1); //Testvector Generator, Top Module
     parameter S3 = 2'b11;
     //STATES end
 
-    reg [9:0]STEP = 1000; //CLOCK DELAY PARAMATER, It means "Delay 5 Clocks"
+    reg [9:0]STEP = 1000; //CLOCK DELAY PARAMATER, It means "Delay 1000 Clocks"
 
     reg [1:0] c_state, next;
     wire div_clk; //Divided Clock Wire
