@@ -1,0 +1,77 @@
+m255
+K4
+z2
+!s11f MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/skagn/Desktop/2022-Summer/Verilog_Study/Verilog_Codes/Sequential_Logic/01_SR_Latch/sim/modelsim
+vjk_latch
+Z1 !s110 1658893236
+!i10b 1
+!s100 mj2<S]<]C[SmFhXDR:V2k3
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+Ibg6aBb9e^czI[5ON]oc153
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+Z4 dC:/Users/skagn/Desktop/2022-Summer/Verilog_Study/Verilog_Codes/Sequential_Logic/02_JK_Latch/sim/modelsim
+w1658893232
+8../../src/rtl/jk_latch.v
+F../../src/rtl/jk_latch.v
+!i122 9
+L0 1 14
+Z5 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z6 !s108 1658893236.000000
+!s107 ../../testbench/testbench.v|../../src/rtl/jk_latch.v|
+Z7 !s90 -reportprogress|300|-f|run.f|
+!i113 1
+Z8 tCvgOpt 0
+vsr_latch
+!s110 1658887880
+!i10b 1
+!s100 K;B<<eYnG`RcfFRNGKj5O0
+R2
+IcdXbUWZXNXkSmOgo_aX612
+R3
+R0
+w1658887872
+8../../src/rtl/sr_latch.v
+F../../src/rtl/sr_latch.v
+!i122 7
+L0 1 17
+R5
+r1
+!s85 0
+31
+!s108 1658887880.000000
+!s107 ../../testbench/testbench.v|../../src/rtl/sr_latch.v|
+R7
+!i113 1
+R8
+vtestbench
+R1
+!i10b 1
+!s100 ?`HRQ0;8kXK?cienjN5Jk1
+R2
+IGml5c8BXVNbnN5[dZ<iGA3
+R3
+R4
+w1658892150
+8../../testbench/testbench.v
+F../../testbench/testbench.v
+!i122 9
+L0 1 19
+R5
+r1
+!s85 0
+31
+R6
+Z9 !s107 ../../testbench/testbench.v|../../src/rtl/jk_latch.v|
+R7
+!i113 1
+R8

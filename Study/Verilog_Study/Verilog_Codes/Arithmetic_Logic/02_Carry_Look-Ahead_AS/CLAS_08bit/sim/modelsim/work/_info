@@ -1,0 +1,165 @@
+m255
+K4
+z2
+!s11f MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/skagn/Desktop/2022-Summer/Verilog_Study/Verilog_Codes/Arithmetic_Logic/02_Carry_Look-Ahead_AS/CLAS_04bit/sim/modelsim
+vadder
+Z0 !s110 1659579090
+!i10b 1
+!s100 K@b0FTg7L5?_@?=R:<QzL3
+Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I^TYnR;leFElg_c9:QI`Q>0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 dC:/Users/skagn/Desktop/2022-Summer/Verilog_Study/Verilog_Codes/Arithmetic_Logic/02_Carry_Look-Ahead_AS/CLAS_08bit/sim/modelsim
+Z4 w1659579085
+Z5 8../../src/rtl/clas_04bit.v
+Z6 F../../src/rtl/clas_04bit.v
+!i122 14
+L0 104 9
+Z7 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z8 !s108 1659579090.000000
+Z9 !s107 ../../testbench/testbench.v|../../src/rtl/clas_08bit.v|../../src/rtl/clas_04bit.v|
+Z10 !s90 -reportprogress|300|-f|run.f|
+!i113 1
+Z11 tCvgOpt 0
+vclas_08bit
+!s110 1659578842
+!i10b 1
+!s100 A[7FGcP?<9MK2CR3i>hLf0
+R1
+IUWGe:g6e3i>_mQF9lZ8M:0
+R2
+R3
+w1659578743
+Z12 8../../src/rtl/clas_08bit.v
+Z13 F../../src/rtl/clas_08bit.v
+!i122 11
+Z14 L0 1 26
+R7
+r1
+!s85 0
+31
+!s108 1659578842.000000
+R9
+R10
+!i113 1
+R11
+vclas_4bit
+R0
+!i10b 1
+!s100 ECkhgH076>3<S023]PIME1
+R1
+IoJ90enohmSTdgFaicfWWM0
+R2
+R3
+R4
+R5
+R6
+!i122 14
+L0 1 53
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 1
+R11
+vclas_8bit
+R0
+!i10b 1
+!s100 RYg24=_QeRIO2FW_>Eo[T2
+R1
+IoVm:U^^7NN>T0DVgHGol60
+R2
+R3
+w1659578907
+R12
+R13
+!i122 14
+R14
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 1
+R11
+vclb
+R0
+!i10b 1
+!s100 Hz;JR2^UIY]m1BHb4<`Ph1
+R1
+IeVhPOIm_bX0^G8cfN3T]n1
+R2
+R3
+R4
+R5
+R6
+!i122 14
+L0 68 35
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 1
+R11
+vinverting_bit
+R0
+!i10b 1
+!s100 2JQP]A`jjBc7AoLhW6z3J2
+R1
+IB`jiL^NAFc?HV2@LAnAKR3
+R2
+R3
+R4
+R5
+R6
+!i122 14
+L0 55 12
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 1
+R11
+vtestbench
+R0
+!i10b 1
+!s100 ce0cgK9OH^N0jcHAH1;CZ3
+R1
+Il:;BiiP2B:Y8>CM=]NCjS3
+R2
+R3
+w1659578784
+8../../testbench/testbench.v
+F../../testbench/testbench.v
+!i122 14
+L0 1 45
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 1
+R11

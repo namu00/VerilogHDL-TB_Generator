@@ -1,0 +1,55 @@
+m255
+K4
+z2
+!s11f MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/skagn/Desktop/Summer2022/2022-Summer/Verilog_Study/LogicGates/2input/and/sim/modelsim
+vand_gate
+!s110 1657524590
+!i10b 1
+!s100 Sck3A<9<<LmoXVP83Njgc2
+Z0 !s11b Dg1SIo80bB@j0V0VzS_@n1
+In4Q7o4UX@@?A4ZcJN2Nde0
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/Users/skagn/Desktop/2022-Summer/Verilog_Study/Verilog_Codes/LogicGate/2input/01_AND/sim/modelsim
+w1657513174
+8../../src/rtl/and_gate.v
+F../../src/rtl/and_gate.v
+!i122 8
+L0 1 8
+Z3 OV;L;2020.1;71
+r1
+!s85 0
+31
+!s108 1657524590.000000
+Z4 !s107 ../../testbench/testbench.v|../../src/rtl/and_gate.v|
+Z5 !s90 -reportprogress|300|-f|run.f|
+!i113 1
+Z6 tCvgOpt 0
+vtestbench
+!s110 1657524343
+!i10b 1
+!s100 zSnb3C8BiY8DaNi94?2PV1
+R0
+IT[f>_6Nz]]ABNBCnWWLa_2
+R1
+R2
+w1657524216
+8../../testbench/testbench.v
+F../../testbench/testbench.v
+!i122 4
+L0 1 20
+R3
+r1
+!s85 0
+31
+!s108 1657524343.000000
+R4
+R5
+!i113 1
+R6
