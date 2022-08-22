@@ -1,18 +1,8 @@
-{ signal: [
-    {    name: 'clk',   wave: 'p..Pp..P'},
-    [
-      [
-        {name: 'write', wave: '01.0....'},
-        {name: 'read',  wave: '0...1..0'}
-      ],
-      {  name: 'addr',  wave: 'x3.x4..x', data: 'A1 A2'},
-      {  name: 'wdata', wave: 'x3.x....', data: 'D1'   },
-    ],
-    {},
-    [
-      [
-        {name: 'ack',   wave: 'x01x0.1x'},
-      ],
-      {  name: 'rdata', wave: 'x.....4x', data: 'Q2'},
-    ]
-  ]}
+//Not Gate
+{signal:
+[ 
+  {name: "input", wave: "h.l."},
+  {},
+  {name: "output", wave: "l.h."}
+]
+}

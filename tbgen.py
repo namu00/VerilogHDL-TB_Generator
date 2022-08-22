@@ -11,22 +11,19 @@ __doc__ = """
 testbench_generator is a tool to create "testbench.v" file based on Wavedrom JSON.
 
 Usage:
-    tbgen.py [TARGET_MODULE.v] [WAVEDROM.json]
-    tbgen.py [OPTIONS] [TESTBENCH.v]
-    tbgen.py [OPTIONS] [WAVEDROM.json]
-    tbgen.py [OPTIONS] [TARGET_MODULE.v] [WAVEDROM.json]
+    tbgen.py             [TARGET_MODULE.v] [WAVEDROM.json]
+    tbgen.py -v          [TARGET_MODULE.v] [WAVEDROM.json]
+    tbgen.py --verbose   [TARGET_MODULE.v] [WAVEDROM.json]
 Generate "Testbench.v" file based on "WAVEDROM.json" and "TARGET_MODULE.v" files.
 
 Optional Arguments:
     -h  --help           Show Guides of Using tool
     -v  --verbose        Show generated result of testbench.
-        --rename         Rename testbench.v file name
-    -w  --watch          Watch Wavedrom Wave via ASCII art
 
 Example:
 ```
 # $ tbgen.py ./Verilog/not.v ./wavedrom/not.json
-# $ tbgen.py -w ./wavedrom/not.json
+# $ tbgen.py -v ./Verilog/not.v ./wavedrom/not.json
 ```
 """
 
