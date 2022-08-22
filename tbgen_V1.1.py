@@ -13,7 +13,7 @@ testbench_generator is a tool to create "testbench.v" file based on Wavedrom JSO
 Usage:
     tbgen.py [TARGET_MODULE.v] [WAVEDROM.json]
     tbgen.py [OPTIONS] [TESTBENCH.v]
-    tbgen.py [OPTIONS] [WAVEDROM.json]
+    tbgen.py [OPTIONS] [WAVEDROM.json]r
     tbgen.py [OPTIONS] [TARGET_MODULE.v] [WAVEDROM.json]
 Generate "Testbench.v" file based on "WAVEDROM.json" and "TARGET_MODULE.v" files.
 
@@ -64,10 +64,12 @@ wavejson_schema = {
 def get_io(module_data):
     inout = []
     for str in module_data:
-        if (str.find("input") != -1):
-            inout.append(str.replace("input", "reg"))
-        elif (str.find("output") != -1):
-            inout.append(str.replace("output", "wire"))
+        if (str.find("input ") != -1):
+            inout.append(str.replace("input", "reg",1))
+        elif (str.find("output reg ") != -1):
+            inout.append(str.replace("output reg", "wire",1))
+        elif (str.find("output ") != -1):
+            inout.append(str.replace("output", "wire",1))
 
     return inout
 
@@ -94,10 +96,9 @@ def module_instance(module_data):
     return instance_string
 
 
-def testvector_gen(json):
-    string = "initial begin end\n"
-    return string
-
+def testvector_gen(io, json):
+    for string in io:
+        if(string.find("reg"))
 
 def tb_gen(module, json):
 

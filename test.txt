@@ -1,6 +1,7 @@
-module not(in,out);
-    input in;
-    output out;
+module jjnvjsj(slbl);
 
-    assign out = ~in;
-endmodule
+input jjjj;
+output reg llll;
+output nblxmb;
+output inputname;
+endmodule;

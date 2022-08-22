@@ -27,4 +27,16 @@ def module_instance(module_data):
             break
     return instance_string
 
-print(module_instance(data))
+def get_io(module_data):
+    inout = []
+    for str in module_data:
+        if (str.find("input ") != -1):
+            inout.append(str.replace("input", "reg",1))
+        elif (str.find("output reg ") != -1):
+            inout.append(str.replace("output reg", "wire",1))
+        elif (str.find("output ") != -1):
+            inout.append(str.replace("output", "wire",1))
+
+    return inout
+    
+print(get_io(data))
