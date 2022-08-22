@@ -233,12 +233,6 @@ def render_json(src, out, graphics, force_hscale=None):
 	for s in obj["signal"]:
 		if "name" in s:
 			max_name_len = max(max_name_len, len(s["name"]))
-	try:
-		hscale = int(obj["config"]["hscale"] * 2 + 2)
-	except KeyError:
-		hscale = 6
-	if force_hscale is not None:
-		hscale = force_hscale * 2 + 2
 
 	# Second pass: actually render
 	for s in (obj["signal"] if "signal" in obj else []):
