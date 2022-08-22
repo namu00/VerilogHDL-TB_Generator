@@ -30,12 +30,6 @@ Example:
 wavejson_schema = {
 	"type": "object",
 	"properties": {
-		"config": {
-			"type": "object",
-			"properties": {
-				"hscale": {"type": "number"}
-			}
-		},
 		"signal": {
 			"type": "array",
 			"items": {
@@ -57,6 +51,18 @@ wavejson_schema = {
 	"additionalProperties": False
 }
 
+def file_test(*name):
+    v = name[0]
+    json = name[1]
+
+    if (v[-2:] == ".v" and json[-5:] == ".json"): return True
+    else: return False
+
+def print_err(code):
+    RED = "\033[91m"
+    WHITE = "\033[37m"
+
+    print(RED+code+WHITE)
 
 def get_io(module_data):
     #function for return signal identification state
@@ -71,7 +77,6 @@ def get_io(module_data):
             inout.append(str.replace("output", "wire"))
 
     return inout
-
 
 def get_module_name(module_data):
     #get module name from .v file
@@ -97,19 +102,43 @@ def module_instance(module_data):
             break
     return instance_string
 
-
 def testvector_gen(json):
     #return testvector states via render json
-    string = "initial begin end\n"
-    return string
+    tab = "    "
+    wave = None #Wavedrome JSON data
+    input = [] #Input Signals(testvector parameter)
+    testvector_string = "" #Testvector String
+    clk_gen = [ tab + "initial"
+    + " clk = 1'b0;\n"
+    + tab + "always #1 clk = ~clk;\n"]
 
+    with open(json) as f:
+        #Load Json file
+        data = f.read()
+        wave = json5.loads(data)
+        jsonschema.Draft6Validator(wavejson_schema).validate(wave)
+    
+    for string in wave["signal"]:
+        if string == {}: break
+        else: input.append(string)
+    
+    for string in input:
+        if string["name"] == "clk": 
+            testvector_string += clk_gen[0]
+            input.remove(string)
 
+    return testvector_string
+    
 def tb_gen(module, json):
 
     #String format
     start = "module testbench();\n"
     tab = "    "
     end = "endmodule"
+
+    if file_test(module,json) == False:
+        print_err("\tFile Extension Error!")
+        return
 
     try:
         #Get module data from .v file
@@ -140,12 +169,7 @@ def tb_gen(module, json):
                 tb_fp.writelines(tb[i])
     except:
         #Error Message
-        print("\033[91m" + "*************************************")
-        print("   .v file verification Failed !! ")
-        print("      Please Checkout .v file")
-        print("*************************************"+"\033[37m")
-
-
+        print_err("\t.v file verification failed!")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
