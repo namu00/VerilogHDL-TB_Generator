@@ -1,7 +1,4 @@
-module jjnvjsj(slbl);
 
-input jjjj;
-output reg llll;
-output nblxmb;
-output inputname;
+
+
 endmodule;
