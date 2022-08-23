@@ -1,7 +1,8 @@
 # 2022 Summer Study  
-+ ### Final Goal
-    >Making __*Testbench Generator*__ Using __*Python*__
-
++ ### Agenda
+    >1. Python Review
+    >2. Verilog Study
+    >3. Making __*Testbench Generator*__ Using __*Python*__
 + ### Final Product
     >__*TB_Gen.py*__
 + ### Directory Information
