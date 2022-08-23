@@ -22,7 +22,7 @@ Example:
 # $ tbgen.py -v ./Verilog/not.v ./wavedrom/not.json
 ```
 """
-
+#===============================Json Schema===============================#
 wavejson_schema = {
 	"type": "object",
 	"properties": {
@@ -46,29 +46,31 @@ wavejson_schema = {
 	},
 	"additionalProperties": False
 }
+#===============================Json Schema===============================#
 
-
+#===============================Exception Handller===============================#
 def file_test(*name):
+    #File extension Test Function
     ext1 = name[0]
     ext2 = name[1]
 
-    ext1 = ext1.split(".")[-1]
-    ext2 = ext2.split(".")[-1]
-    if (ext1 == "v" and ext2 == "json"): return True
+    ext1 = ext1.split(".")[-1] #get file extension
+    ext2 = ext2.split(".")[-1] #get file extension
+    if (ext1 == "v" and ext2 == "json"): return True #check extension
     else: return False
 
 def print_err(code):
     RED = "\033[91m"
     WHITE = "\033[37m"
 
-    print(RED+code+WHITE)
+    print(RED+code+WHITE) #print Error Message
     return False
+#===============================Exception Handller===============================#
 
-
-
+#===============================testbench formatter===============================#
 def get_io(module_data):
-    #function for return signal identification state
-    #replace input/output Keyword to reg/wire
+    #Get input/output signal information from .v file
+    #Return testbench formatted i/o state 
     inout = []
     data = ''.join(module_data)
     data = data.split(";")
@@ -94,7 +96,8 @@ def get_io(module_data):
     return inout
 
 def get_module_name(module_data):
-    #get module name from .v file
+    #Get module name from .v file
+    #Return module name
     for string in module_data:
         if (string.find("module") != -1):
             name = string.replace("\n","")
@@ -103,9 +106,8 @@ def get_module_name(module_data):
             return name.split("(")[0]
 
 def module_instance(module_data):
-    #function for testunit instance state
-    #return testunit instance state
-    m_name = get_module_name(module_data)
+    #Return Module Instance State
+    m_name = get_module_name(module_data) #get module name
     instance_string = "    "
     for string in module_data:
         if (string.find("module ") != -1):
@@ -115,20 +117,22 @@ def module_instance(module_data):
                 #module test_unit([TERMINALS]); --> [module_name] test_unit([TERMINALS]);
             break
     return instance_string
+#===============================testbench formatter===============================#
 
+#===============================testvector generator===============================#
 def wave_interpreter(sig_info):
+    #Convert wavedrom signals to Verilog syntax
     high = "1hHu"
     low = "0lLd"
-    bus = "="
 
     tab = "    "
-    name = sig_info["name"]
-    json_wave = list(sig_info["wave"])
-    wave = [json_wave[0]]
-    ret_string = ""
+    name = sig_info["name"]             #get signal name from argument "sig_info"
+    json_wave = list(sig_info["wave"])  #get json wavedata from argument "sig_info"
+    wave = [json_wave[0]]               #re-define wave
+    ret_string = ""                     #Return String, Verilog State
 
 
-    if sig_info.get("data") == None:
+    if sig_info.get("data") == None:    #if it has not "data" field, Run Bellow
         for i in range(1,len(json_wave)):
             if json_wave[i] == '.': wave.append(wave[(i - 1)])
             else: wave.append(json_wave[i])
@@ -137,7 +141,7 @@ def wave_interpreter(sig_info):
             ret_string += (tab + tab) #indentation
             if c in high:
                 ret_string += (name + " = 1'b1; #2;\n")
-            else:
+            elif c in low:
                 ret_string += (name + " = 1'b0; #2;\n")
 
     elif sig_info.get("data") != None:
@@ -150,7 +154,7 @@ def wave_interpreter(sig_info):
 
 
 def testvector_gen(json):
-    #return testvector states via render json
+    #Return testvector states via rendering json
     tab = "    "
     wave = None             #Wavedrome JSON data
     input = []              #Input Signal list(testvector parameter)
@@ -170,28 +174,28 @@ def testvector_gen(json):
         wave = json5.loads(data)
         jsonschema.Draft6Validator(wavejson_schema).validate(wave)
     
-    for string in wave["signal"]:   #Input Signal Extraction
+    for string in wave["signal"]:   #input signal extraction
         if string == {}: break
         else: input.append(string)
     
-    for string in input:            #clk generate & Remove CLK from json data
+    for string in input:            #clk generate & remove CLK from json data
         if string["name"] == "clk": 
             testvector_string += clk_gen
             input.remove(string)
 
-    for string in input:
+    for string in input: #testvector generate
         testvector_string += start
         testvector_string += wave_interpreter(string)
         testvector_string += end
     
-    for data in input:
+    for data in input: #set stop_time
         stop_time = max(stop_time,len(data["wave"]))
     testvector_string += ("    initial #" + str(stop_time * 2) + "; $stop;\n")
 
     return testvector_string
+#===============================testvector generator===============================#
 
-
-
+#===============================TESTBENCH generator===============================#
 def tb_gen(module, json):
 
     if file_test(module,json) == False:
@@ -230,7 +234,7 @@ def tb_gen(module, json):
     except:
         #Error Message
         return print_err("\t.v file verification failed!")
-
+#===============================TESTBENCH generator===============================#
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
