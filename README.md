@@ -3,7 +3,7 @@
     >Making __*Testbench Generator*__ Using __*Python*__
 
 + ### Final Product
-    >__*TB_Gen.py *__
+    >__*TB_Gen.py*__
 + ### Directory Information
 
     |Directory|Description|  
