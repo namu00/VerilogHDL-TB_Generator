@@ -1,10 +1,10 @@
 module testbench();
-    reg in;
-    wire out;
+    reg clk;
+    reg rst;
+    wire [3:0] q;
 
-    not test_unit(in,out);
+    jcnt test_unit(clk, rst, q);
 
     initial clk = 1'b0;
     always #1 clk = ~clk;
-    
 endmodule

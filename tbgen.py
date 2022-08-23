@@ -91,14 +91,11 @@ def module_instance(module_data):
     #function for testunit instance state
     #return testunit instance state
     m_name = get_module_name(module_data)
-    instance_string = "    " + str(m_name) + " "
+    instance_string = "    "
     for string in module_data:
-        if (string.find("module") != -1):
-            name = string.replace("\n","")
-            name = name.split(" ")
-            name = name[1].replace(m_name,"test_unit")
-
-            instance_string = instance_string + name + "\n"
+        if (string.find("module ") != -1):
+            instance_string += string.replace(m_name,"test_unit")
+            instance_string = instance_string.replace("module", m_name)
             break
     return instance_string
 
