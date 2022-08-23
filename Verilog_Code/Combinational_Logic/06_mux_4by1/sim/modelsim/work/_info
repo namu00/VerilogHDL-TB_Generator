@@ -1,0 +1,55 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/skagn/Desktop/2022-Summer/Verilog_Study/Verilog_Codes/Combinational_Logic/06_mux_4by1/sim/modelsim
+vmux
+Z1 !s110 1657690026
+!i10b 1
+!s100 1lPYQ7KD9J?3kdfzz35880
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IkmjKo64:6T<o?mo2kYCAg3
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z4 w1657690019
+8../../src/rtl/mux.v
+F../../src/rtl/mux.v
+!i122 6
+L0 1 14
+Z5 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z6 !s108 1657690026.000000
+!s107 ../../testbench/testbench.v|../../src/rtl/mux.v|
+Z7 !s90 -reportprogress|300|-f|run.f|
+!i113 1
+Z8 tCvgOpt 0
+vtestbench
+R1
+!i10b 1
+!s100 :1>Z7:Mfog^jfeX056gR:1
+R2
+IAB@GBF>`b1D5Ki:b6EL@V2
+R3
+R0
+R4
+8../../testbench/testbench.v
+F../../testbench/testbench.v
+!i122 6
+L0 1 27
+R5
+r1
+!s85 0
+31
+R6
+Z9 !s107 ../../testbench/testbench.v|../../src/rtl/mux.v|
+R7
+!i113 1
+R8

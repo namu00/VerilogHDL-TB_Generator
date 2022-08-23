@@ -1,0 +1,55 @@
+m255
+K4
+z2
+!s11f MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/skagn/Desktop/2022-Summer/Verilog_Study/Verilog_Codes/Combinational_Logic/05_decoder_2by4/sim/modelsim
+vdecoder
+Z1 !s110 1657682423
+!i10b 1
+!s100 6cF[LRJE;NAZK@QD_S5=i2
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I<zb9ZaFjDnL<_elTe[]cO0
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1657682419
+8../../src/rtl/decoder.v
+F../../src/rtl/decoder.v
+!i122 3
+L0 1 41
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1657682423.000000
+!s107 ../../testbench/testbench.v|../../src/rtl/decoder.v|
+Z6 !s90 -reportprogress|300|-f|run.f|
+!i113 1
+Z7 tCvgOpt 0
+vtestbench
+R1
+!i10b 1
+!s100 TmUk4>7JdGXjZ^g4CdaIJ3
+R2
+IB<Q4kHemjQc]]2DQ_SCe<1
+R3
+R0
+w1657682231
+8../../testbench/testbench.v
+F../../testbench/testbench.v
+!i122 3
+L0 1 20
+R4
+r1
+!s85 0
+31
+R5
+Z8 !s107 ../../testbench/testbench.v|../../src/rtl/decoder.v|
+R6
+!i113 1
+R7
