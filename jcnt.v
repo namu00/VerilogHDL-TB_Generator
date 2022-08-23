@@ -1,4 +1,4 @@
-module jcnt(clk, rst, q);
+module jcnt (clk, rst, q);
     input clk;
     input rst;
     output [3:0] q;

@@ -47,7 +47,6 @@ wavejson_schema = {
 }
 #================wavdrom json schema================#
 
-
 #==========================#Exception Handller Section#==========================#
 def file_test(*name):
     v = name[0]
@@ -95,8 +94,10 @@ def module_instance(module_data):
     instance_string = "    "
     for string in module_data:
         if (string.find("module ") != -1):
-            instance_string += string.replace(m_name,"test_unit")
+            instance_string += string.replace(m_name,"test_unit") 
+                #module [module_name]([TERMINALS]) --> module test_unit([TERMINALS])
             instance_string = instance_string.replace("module", m_name)
+                #module test_unit([TERMINALS]) --> [module_name] test_unit([TERMINALS])
             break
     return instance_string
 
