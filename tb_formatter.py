@@ -1,11 +1,6 @@
 import argparse
-import itertools
 import json5
 import jsonschema
-import time
-import traceback
-import sys
-import re
 
 __doc__ = """
 testbench_generator is a tool to create "testbench.v" file based on Wavedrom JSON.
@@ -26,7 +21,7 @@ Example:
 # $ tbgen.py -v ./Verilog/not.v ./wavedrom/not.json
 ```
 """
-
+#================wavdrom json schema================#
 wavejson_schema = {
 	"type": "object",
 	"properties": {
@@ -50,7 +45,10 @@ wavejson_schema = {
 	},
 	"additionalProperties": False
 }
+#================wavdrom json schema================#
 
+
+#==========================#Exception Handller Section#==========================#
 def file_test(*name):
     v = name[0]
     json = name[1]
@@ -63,7 +61,10 @@ def print_err(code):
     WHITE = "\033[37m"
 
     print(RED+code+WHITE)
+    return False
+#==========================#Exception Handller Section#==========================#
 
+#==========================#Testbench Formatting Section#==========================#
 def get_io(module_data):
     #function for return signal identification state
     #replace input/output Keyword to reg/wire
@@ -114,24 +115,23 @@ def testvector_gen(json):
         wave = json5.loads(data)
         jsonschema.Draft6Validator(wavejson_schema).validate(wave)
     
-    for string in wave["signal"]:
+    for string in wave["signal"]: #Input Signal Extraction
         if string == {}: break
         else: input.append(string)
     
-    for string in input:
+    for string in input: #clk generate & Remove CLK from json data
         if string["name"] == "clk": 
             testvector_string += clk_gen
             input.remove(string)
 
     return testvector_string
+#==========================#Testbench Formatting Section#==========================#
+
+#==========================#Root Function#==========================#
 def tb_gen(module, json):
 
-    #String format
-    start = "module testbench();\n"
-    tab = "    "
-    end = "endmodule"
-
     if file_test(module,json) == False:
+        #File Extension Check Failed
         return print_err("\tFile Extension Error!")
 
     try:
@@ -150,11 +150,11 @@ def tb_gen(module, json):
 
         #testbench contents
         tb = [
-            start,       #module testbench();
-            inout,       #   input/output list
-            instance,    #   testunit instance
-            testvector,  #   testvactors
-            end          #endmodule
+            "module testbench();\n",    #module testbench();
+            inout,                      #   input/output list
+            instance,                   #   testunit instance
+            testvector,                 #   testvactors
+            "endmodule"                 #endmodule
             ]
         
         #Write Testbench.v
@@ -166,6 +166,7 @@ def tb_gen(module, json):
     except:
         #Error Message
         return print_err("\t.v file verification failed!")
+#==========================#Root Function#==========================#
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -176,6 +177,10 @@ if __name__ == "__main__":
     parser.add_argument("-v", "--verbose", action="store_true",
                         help="Show generated result of testbench.")
     args = parser.parse_args()
+
+    #Take Two Argument as Default.
+    #Argument Sequence: [VerilogHDL].v [Wavedrom].json
+    #Please Follow the Sequence.
 
     if args.verbose:
         if(tb_gen(args.module_src, args.json_src)):
