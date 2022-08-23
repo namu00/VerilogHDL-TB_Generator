@@ -1,5 +1,5 @@
 # 2022 Summer Study  
-+ ### Agendas
++ ### Agenda
     >1. Python Review
     >2. Verilog Study
     >3. Making __*Testbench Generator*__ Using __*Python*__
