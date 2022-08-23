@@ -26,3 +26,5 @@ data = ''.join(data)
 data = data.split(";")
 for str in get_io(data):
     print(str)
+
+print("'b")

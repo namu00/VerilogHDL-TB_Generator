@@ -1,4 +1,5 @@
 import argparse
+import wave
 import json5
 import jsonschema
 
@@ -72,20 +73,20 @@ def get_io(module_data):
     data = ''.join(module_data)
     data = data.split(";")
 
-    for str in data:
+    for string in data:
         data = ""
-        if (str.find("input ") != -1):
-            data = str.replace("input", "reg")
+        if (string.find("input ") != -1):
+            data = string.replace("input", "reg")
             data += ";"
             inout.append(data)
 
-        elif (str.find("output reg ") != -1):
-            data = str.replace("output reg", "wire")
+        elif (string.find("output reg ") != -1):
+            data = string.replace("output reg", "wire")
             data += ";"
             inout.append(data)
 
-        elif (str.find("output ") != -1):
-            data = str.replace("output", "wire")
+        elif (string.find("output ") != -1):
+            data = string.replace("output", "wire")
             data += ";"
             inout.append(data)
 
@@ -94,9 +95,9 @@ def get_io(module_data):
 
 def get_module_name(module_data):
     #get module name from .v file
-    for str in module_data:
-        if (str.find("module") != -1):
-            name = str.replace("\n","")
+    for string in module_data:
+        if (string.find("module") != -1):
+            name = string.replace("\n","")
             name = name.replace(";","").split(" ")
             name = name[1]
             return name.split("(")[0]
@@ -109,32 +110,42 @@ def module_instance(module_data):
     for string in module_data:
         if (string.find("module ") != -1):
             instance_string += string.replace(m_name,"test_unit") 
-                #module [module_name]([TERMINALS]) --> module test_unit([TERMINALS])
+                #module [module_name]([TERMINALS]); --> module test_unit([TERMINALS]);
             instance_string = instance_string.replace("module", m_name)
-                #module test_unit([TERMINALS]) --> [module_name] test_unit([TERMINALS])
+                #module test_unit([TERMINALS]); --> [module_name] test_unit([TERMINALS]);
             break
     return instance_string
 
-def wave_interpreter(name, data):
+def wave_interpreter(sig_info):
     high = "1hHu"
     low = "0lLd"
     bus = "="
 
     tab = "    "
-    sig_info = [data[0]]
+    name = sig_info["name"]
+    json_wave = list(sig_info["wave"])
+    wave = [json_wave[0]]
     ret_string = ""
 
-    for i in range(1,len(data)):
-        if data[i] == '.': sig_info.append(sig_info[(i - 1)])
-        else: sig_info.append(data[i])
-    
-    for c in sig_info:
-        ret_string += (tab + tab) #indentation
-        if c in high:
-            ret_string += (name + " = 1'b1; #2;\n")
-        else:
-            ret_string += (name + " = 1'b0; #2;\n")
-    
+
+    if sig_info.get("data") == None:
+        for i in range(1,len(json_wave)):
+            if json_wave[i] == '.': wave.append(wave[(i - 1)])
+            else: wave.append(json_wave[i])
+
+        for c in wave:
+            ret_string += (tab + tab) #indentation
+            if c in high:
+                ret_string += (name + " = 1'b1; #2;\n")
+            else:
+                ret_string += (name + " = 1'b0; #2;\n")
+
+    elif sig_info.get("data") != None:
+        size = str(len(sig_info["data"][0]))
+        for data in sig_info["data"]:
+            ret_string += (tab + tab) #indentation
+            ret_string += (name + " = " + size + "'b" + data + "; #2;\n")
+
     return ret_string
 
 
@@ -168,10 +179,9 @@ def testvector_gen(json):
             input.remove(string)
 
     for string in input:
-        if string.get("data") == None:
-            testvector_string += start
-            testvector_string += wave_interpreter(string["name"], string["wave"])
-            testvector_string += end
+        testvector_string += start
+        testvector_string += wave_interpreter(string)
+        testvector_string += end
     return testvector_string
 #Testbench Formatting Section#
 
