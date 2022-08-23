@@ -47,7 +47,7 @@ wavejson_schema = {
 	"additionalProperties": False
 }
 
-#Exception Handller Section#
+
 def file_test(*name):
     ext1 = name[0]
     ext2 = name[1]
@@ -63,9 +63,9 @@ def print_err(code):
 
     print(RED+code+WHITE)
     return False
-#Exception Handller Section#
 
-#Testbench Formatting Section#
+
+
 def get_io(module_data):
     #function for return signal identification state
     #replace input/output Keyword to reg/wire
@@ -152,9 +152,10 @@ def wave_interpreter(sig_info):
 def testvector_gen(json):
     #return testvector states via render json
     tab = "    "
-    wave = None #Wavedrome JSON data
-    input = [] #Input Signal list(testvector parameter)
-    testvector_string = "" #Testvector String
+    wave = None             #Wavedrome JSON data
+    input = []              #Input Signal list(testvector parameter)
+    testvector_string = ""  #Testvector String
+    stop_time = 0           #Simulation Stop Time
 
     start = (tab + "initial begin\n")
     end = (tab + "end\n\n")
@@ -169,11 +170,11 @@ def testvector_gen(json):
         wave = json5.loads(data)
         jsonschema.Draft6Validator(wavejson_schema).validate(wave)
     
-    for string in wave["signal"]: #Input Signal Extraction
+    for string in wave["signal"]:   #Input Signal Extraction
         if string == {}: break
         else: input.append(string)
     
-    for string in input: #clk generate & Remove CLK from json data
+    for string in input:            #clk generate & Remove CLK from json data
         if string["name"] == "clk": 
             testvector_string += clk_gen
             input.remove(string)
@@ -182,10 +183,15 @@ def testvector_gen(json):
         testvector_string += start
         testvector_string += wave_interpreter(string)
         testvector_string += end
-    return testvector_string
-#Testbench Formatting Section#
+    
+    for data in input:
+        stop_time = max(stop_time,len(data["wave"]))
+    testvector_string += ("    initial #" + str(stop_time * 2) + "; $stop;\n")
 
-#Root Function#
+    return testvector_string
+
+
+
 def tb_gen(module, json):
 
     if file_test(module,json) == False:
@@ -224,7 +230,7 @@ def tb_gen(module, json):
     except:
         #Error Message
         return print_err("\t.v file verification failed!")
-#Root Function#
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
