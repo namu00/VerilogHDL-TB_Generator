@@ -1,6 +1,8 @@
 module jcnt (clk, rst, q);
-    input clk;
-    input rst;
+    input clk,
+            rst,
+            nalbkd,
+            snblskdnblsd;
     output [3:0] q;
 
     reg [3:0]d;

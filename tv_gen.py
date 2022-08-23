@@ -21,7 +21,7 @@ Example:
 # $ tbgen.py -v ./Verilog/not.v ./wavedrom/not.json
 ```
 """
-#================wavdrom json schema================#
+
 wavejson_schema = {
 	"type": "object",
 	"properties": {
@@ -45,14 +45,15 @@ wavejson_schema = {
 	},
 	"additionalProperties": False
 }
-#================wavdrom json schema================#
 
-#==========================#Exception Handller Section#==========================#
+#Exception Handller Section#
 def file_test(*name):
-    v = name[0]
-    json = name[1]
+    ext1 = name[0]
+    ext2 = name[1]
 
-    if (v[-2:] == ".v" and json[-5:] == ".json"): return True
+    ext1 = ext1.split(".")[-1]
+    ext2 = ext2.split(".")[-1]
+    if (ext1 == "v" and ext2 == "json"): return True
     else: return False
 
 def print_err(code):
@@ -61,21 +62,29 @@ def print_err(code):
 
     print(RED+code+WHITE)
     return False
-#==========================#Exception Handller Section#==========================#
+#Exception Handller Section#
 
-#==========================#Testbench Formatting Section#==========================#
+#Testbench Formatting Section#
 def get_io(module_data):
     #function for return signal identification state
     #replace input/output Keyword to reg/wire
     inout = []
     for str in module_data:
+        data = ""
         if (str.find("input ") != -1):
-            inout.append(str.replace("input", "reg"))
-        elif (str.find("output reg ") != -1):
-            inout.append(str.replace("output reg", "wire"))
-        elif (str.find("output ") != -1):
-            inout.append(str.replace("output", "wire"))
+            data = str.replace("input", "reg")
+            data += ";"
+            inout.append(data)
 
+        elif (str.find("output reg ") != -1):
+            data = str.replace("output reg", "wire")
+            data += ";"
+            inout.append(data)
+        elif (str.find("output ") != -1):
+            data = str.replace("output", "wire")
+            data += ";"
+            inout.append(data)
+            
     return inout
 
 def get_module_name(module_data):
@@ -101,15 +110,43 @@ def module_instance(module_data):
             break
     return instance_string
 
+def wave_interpreter(name, data):
+    high = "1hHu"
+    low = "0lLd"
+    bus = "="
+
+    tab = "    "
+    sig_info = [data[0]]
+    ret_string = ""
+
+    for i in range(1,len(data)):
+        if data[i] == '.': sig_info.append(sig_info[(i - 1)])
+        else: sig_info.append(data[i])
+    
+    for c in sig_info:
+        ret_string += (tab + tab) #indentation
+        if c in high:
+            ret_string += (name + " = 1'b1; #2;\n")
+        else:
+            ret_string += (name + " = 1'b0; #2;\n")
+    
+    return ret_string
+
+
 def testvector_gen(json):
     #return testvector states via render json
     tab = "    "
     wave = None #Wavedrome JSON data
     input = [] #Input Signal list(testvector parameter)
     testvector_string = "" #Testvector String
-    clk_gen = (tab + "initial"
+
+    start = (tab + "initial begin\n")
+    end = (tab + "end\n\n")
+
+    clk_gen = (tab + "initial" #CLK state
     + " clk = 1'b0;\n"
-    + tab + "always #1 clk = ~clk;\n")
+    + tab + "always #1 clk = ~clk;\n\n")
+
     with open(json) as f:
         #Load Json file
         data = f.read()
@@ -125,10 +162,15 @@ def testvector_gen(json):
             testvector_string += clk_gen
             input.remove(string)
 
+    for string in input:
+        if string.get("data") == None:
+            testvector_string += start
+            testvector_string += wave_interpreter(string["name"], string["wave"])
+            testvector_string += end
     return testvector_string
-#==========================#Testbench Formatting Section#==========================#
+#Testbench Formatting Section#
 
-#==========================#Root Function#==========================#
+#Root Function#
 def tb_gen(module, json):
 
     if file_test(module,json) == False:
@@ -167,7 +209,7 @@ def tb_gen(module, json):
     except:
         #Error Message
         return print_err("\t.v file verification failed!")
-#==========================#Root Function#==========================#
+#Root Function#
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
