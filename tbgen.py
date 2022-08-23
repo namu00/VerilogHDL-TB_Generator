@@ -103,12 +103,11 @@ def testvector_gen(json):
     #return testvector states via render json
     tab = "    "
     wave = None #Wavedrome JSON data
-    input = [] #Input Signals(testvector parameter)
+    input = [] #Input Signal list(testvector parameter)
     testvector_string = "" #Testvector String
-    clk_gen = [ tab + "initial"
+    clk_gen = (tab + "initial"
     + " clk = 1'b0;\n"
-    + tab + "always #1 clk = ~clk;\n"]
-
+    + tab + "always #1 clk = ~clk;\n")
     with open(json) as f:
         #Load Json file
         data = f.read()
@@ -121,11 +120,10 @@ def testvector_gen(json):
     
     for string in input:
         if string["name"] == "clk": 
-            testvector_string += clk_gen[0]
+            testvector_string += clk_gen
             input.remove(string)
 
     return testvector_string
-    
 def tb_gen(module, json):
 
     #String format
@@ -134,8 +132,7 @@ def tb_gen(module, json):
     end = "endmodule"
 
     if file_test(module,json) == False:
-        print_err("\tFile Extension Error!")
-        return
+        return print_err("\tFile Extension Error!")
 
     try:
         #Get module data from .v file
@@ -164,9 +161,11 @@ def tb_gen(module, json):
         with open("testbench.v", 'w', encoding='utf-8') as tb_fp:
             for i in range(0,len(tb)):
                 tb_fp.writelines(tb[i])
+        
+        return True
     except:
         #Error Message
-        print_err("\t.v file verification failed!")
+        return print_err("\t.v file verification failed!")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -179,8 +178,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if args.verbose:
-        tb_gen(args.module_src, args.json_src)
-        with open("testbench.v", 'r', encoding='utf-8') as f:
-            print(f.read())
+        if(tb_gen(args.module_src, args.json_src)):
+            with open("testbench.v", 'r', encoding='utf-8') as f:
+                print(f.read())
     else:
         tb_gen(args.module_src, args.json_src)
