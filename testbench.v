@@ -1,5 +1,9 @@
 module testbench();
-    reg clk, rst;
+
+    reg clk,
+          rst,
+          nalbkd,
+          snblskdnblsd;
     wire [3:0] q;
 
     jcnt test_unit (clk, rst, q);

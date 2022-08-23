@@ -69,7 +69,10 @@ def get_io(module_data):
     #function for return signal identification state
     #replace input/output Keyword to reg/wire
     inout = []
-    for str in module_data:
+    data = ''.join(module_data)
+    data = data.split(";")
+
+    for str in data:
         data = ""
         if (str.find("input ") != -1):
             data = str.replace("input", "reg")
@@ -80,11 +83,13 @@ def get_io(module_data):
             data = str.replace("output reg", "wire")
             data += ";"
             inout.append(data)
+
         elif (str.find("output ") != -1):
             data = str.replace("output", "wire")
             data += ";"
             inout.append(data)
-            
+
+    inout.append("\n")
     return inout
 
 def get_module_name(module_data):
