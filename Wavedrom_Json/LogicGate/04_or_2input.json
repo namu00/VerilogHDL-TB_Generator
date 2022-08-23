@@ -1,0 +1,17 @@
+{signal:
+ [
+  ["2input  OR",
+  ["input",
+   {name:"input_a", wave:"l.h."},
+   {name:"input_b", wave:"lhlh"} 
+  ],
+   
+  {},
+   
+  ["out",
+   {name:"out", wave:"lh.."}
+  ]
+   
+  ]
+ ]
+}
