@@ -1,26 +1,17 @@
 import argparse
-import wave
 import json5
 import jsonschema
-
+import re
 __doc__ = """
-testbench_generator is a tool to create "testbench.v" file based on Wavedrom JSON.
-
-Usage:
-    tbgen.py             [TARGET_MODULE.v] [WAVEDROM.json]
-    tbgen.py -v          [TARGET_MODULE.v] [WAVEDROM.json]
-    tbgen.py --verbose   [TARGET_MODULE.v] [WAVEDROM.json]
-Generate "Testbench.v" file based on "WAVEDROM.json" and "TARGET_MODULE.v" files.
-
-Optional Arguments:
-    -h  --help           Show Guides of Using tool
-    -v  --verbose        Show generated result of testbench.
+TB_Gen.py is a tool to create "testbench.v" file based on Wavedrom JSON.
 
 Example:
-```
-# $ tbgen.py ./Verilog/not.v ./wavedrom/not.json
-# $ tbgen.py -v ./Verilog/not.v ./wavedrom/not.json
-```
+    tbgen.py                [TARGET_MODULE.v] [WAVEDROM.json]
+    tbgen.py -v             [TARGET_MODULE.v] [WAVEDROM.json]
+    tbgen.py --verbose      [TARGET_MODULE.v] [WAVEDROM.json]
+    tbgen.py -p [NUM]       [TARGET_MODULE.v] [WAVEDROM.json]
+    tbgen.py -period [NUM]  [TARGET_MODULE.v] [WAVEDROM.json]
+
 """
 #===============================Json Schema===============================#
 wavejson_schema = {
@@ -51,11 +42,9 @@ wavejson_schema = {
 #===============================Exception Handller===============================#
 def file_test(*name):
     #File extension Test Function
-    ext1 = name[0]
-    ext2 = name[1]
+    ext1 = name[0].split(".")[-1] #get file extension
+    ext2 = name[1].split(".")[-1] #get file extension
 
-    ext1 = ext1.split(".")[-1] #get file extension
-    ext2 = ext2.split(".")[-1] #get file extension
     if (ext1 == "v" and ext2 == "json"): return True #check extension
     else: return False
 
@@ -128,32 +117,54 @@ def wave_interpreter(sig_info):
     tab = "    "
     name = sig_info["name"]             #get signal name from argument "sig_info"
     json_wave = list(sig_info["wave"])  #get json wavedata from argument "sig_info"
-    wave = [json_wave[0]]               #re-define wave
-    ret_string = ""                     #Return String, Verilog State
+    delay = "@(negedge clk); "
+    ret_string = ""                     #return String, Verilog State
 
+    if name == "rst":
+        for i in range(0,len(json_wave)):
+            data = ""
+            if i == 0:
+                data += (tab + tab)
+                data += (name + " = 1'b1;\n")
+            elif json_wave[i] in high:
+                data += (tab + tab)
+                data += (delay + name + " = 1'b1;\n")
+            elif json_wave[i] in low:
+                data += (tab + tab)
+                data += (delay + name + " = 1'b0;\n")
+            elif sig_info["wave"][2:].find("l") != -1:
+                data += prev_data
 
-    if sig_info.get("data") == None:    #if it has not "data" field, Run Bellow
-        for i in range(1,len(json_wave)):
-            if json_wave[i] == '.': wave.append(wave[(i - 1)])
-            else: wave.append(json_wave[i])
+            ret_string += data
+            prev_data = data
 
-        for c in wave:
-            ret_string += (tab + tab) #indentation
-            if c in high:
-                ret_string += (name + " = 1'b1; #2;\n")
-            elif c in low:
-                ret_string += (name + " = 1'b0; #2;\n")
+    elif sig_info.get("data") == None:    #If it has not "data" field, Run Bellow
+        for i in range(0,len(json_wave)):
+            data = ""
+            if json_wave[i] in high:
+                data += (tab + tab)
+                data += (delay + name + " = 1'b1;\n")
+            elif json_wave[i] in low:
+                data += (tab + tab)
+                data += (delay + name + " = 1'b0;\n")
+            elif json_wave[i] == '.':
+                data += prev_data
 
-    elif sig_info.get("data") != None:
+            ret_string += data
+            prev_data = data
+
+    elif sig_info.get("data") != None: #If it has "data" field, Run Bellow
         size = str(len(sig_info["data"][0]))
         for data in sig_info["data"]:
             ret_string += (tab + tab) #indentation
-            ret_string += (name + " = " + size + "'b" + data + "; #2;\n")
+            ret_string += ("@(negedge clk); "+ name + " = " + size + "'b" + data + ";\n")
+
 
     return ret_string
 
 
-def testvector_gen(json):
+def testvector_gen(json, cp):
+
     #Return testvector states via rendering json
     tab = "    "
     wave = None             #Wavedrome JSON data
@@ -166,7 +177,7 @@ def testvector_gen(json):
 
     clk_gen = (tab + "initial" #CLK state
     + " clk = 1'b0;\n"
-    + tab + "always #1 clk = ~clk;\n\n")
+    + tab + "always #" + cp + " clk = ~clk;\n\n")
 
     with open(json) as f:
         #Load Json file
@@ -190,14 +201,16 @@ def testvector_gen(json):
     
     for data in input: #set stop_time
         stop_time = max(stop_time,len(data["wave"]))
-    testvector_string += ("    initial #" + str(stop_time * 2) + "; $stop;\n")
 
+    testvector_string += (tab + "initial begin\n"
+                         +(tab + tab) +"#" + str(stop_time * int(cp)) + "; $stop;\n"
+                         +(tab + tab) + "end\n")
+    
     return testvector_string
 #===============================testvector generator===============================#
 
 #===============================TESTBENCH generator===============================#
-def tb_gen(module, json):
-
+def tb_gen(module, json, cp="1"):
     if file_test(module,json) == False:
         #File Extension Check Failed
         return print_err("\tFile Extension Error!")
@@ -214,8 +227,8 @@ def tb_gen(module, json):
         instance = "\n" + module_instance(v_data)
 
         #Create Testvector via Wavedrom JSON
-        testvector = "\n" + testvector_gen(json)
-
+        testvector = "\n" + testvector_gen(json, cp)
+        
         #testbench contents
         tb = [
             "module testbench();\n",    #module testbench();
@@ -242,6 +255,8 @@ if __name__ == "__main__":
     parser.epilog = __doc__
     parser.add_argument("module_src", help="TestTarget VerilogHDL source file")
     parser.add_argument("json_src", help="WaveJSON source file")
+    parser.add_argument("-p", "--period", action="store",
+                        help="Set Clock Period")
     parser.add_argument("-v", "--verbose", action="store_true",
                         help="Show generated result of testbench.")
     args = parser.parse_args()
@@ -249,10 +264,13 @@ if __name__ == "__main__":
     #Take Two Argument as Default.
     #Argument Sequence: [VerilogHDL].v [Wavedrom].json
     #Please Follow the Sequence.
+    
+    if args.period != None:
+        tb_gen(args.module_src, args.json_src, args.period)
 
-    if args.verbose:
-        if(tb_gen(args.module_src, args.json_src)):
+    elif args.verbose:
+        if(tb_gen(args.module_src, args.json_src, "1")):
             with open("testbench.v", 'r', encoding='utf-8') as f:
                 print(f.read())
     else:
-        tb_gen(args.module_src, args.json_src)
+        tb_gen(args.module_src, args.json_src, "1")
