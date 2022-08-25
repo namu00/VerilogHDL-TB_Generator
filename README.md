@@ -19,7 +19,7 @@
     > ~Adding BUS Processing Block~  
     > ~Fixing Verilog Syntax Error~
     > ~Fixing Timing Error~  
-    >~_All Testcase Passed!_~
+    >_All Testcase Passed!_  
     > *Ver 1.8* Release  
 + ### Version Information
     *Ver 1.0*    Initial Release  
