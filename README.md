@@ -10,8 +10,8 @@
     |Directory|Description|  
     |:---:|:--------:|  
     |*Study*|Verilog & Python Study Directory |  
-    |*Verilog_Code*| Verilog TestSamples |
-    |*Wavedrom_Json*| Wavedrom json TestSamples |
+    |*Verilog_Testcase*| Verilog TestSamples |
+    |*Wavedrom_Testcase*| Wavedrom json TestSamples |
 + ### Version Info
     *Ver 1.0*    Initial Release  
     *Ver 1.1*    Add Exception Handller  
