@@ -9,10 +9,13 @@
     |:---:|:--------:|  
     |*Study*|Verilog & Python Study Directory |  
     |*Verilog_Testcase*| Verilog TestSamples |
-    |*Wavedrom_Testcase*| Wavedrom json TestSamples |
+    |*Wavedrom_Testcase*| Wavedrom json TestSamples |  
+
 # Product Info
 + ### Final Product
     >__*TB_Gen.py*__
+    > ~Fix Errors~
+    >__All Testcase Passed!_
 
 + ### Version Information
     *Ver 1.0*    Initial Release  
