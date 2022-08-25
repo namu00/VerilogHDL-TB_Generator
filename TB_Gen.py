@@ -260,7 +260,7 @@ if __name__ == "__main__":
     parser.epilog = __doc__
     parser.add_argument("module_src", help="TestTarget VerilogHDL source file")
     parser.add_argument("json_src", help="WaveJSON source file")
-    parser.add_argument("-p", "--period", action="store",
+    parser.add_argument("-p", "--period", action="store_true",
                         help="Set Clock Period")
     parser.add_argument("-v", "--verbose", action="store_true",
                         help="Show generated result of testbench.")
@@ -270,12 +270,12 @@ if __name__ == "__main__":
     #Argument Sequence: [VerilogHDL].v [Wavedrom].json
     #Please Follow the Sequence.
     
-    if args.period != None:
+    if args.period:
         tb_gen(args.module_src, args.json_src, args.period)
 
     elif args.verbose:
-        if(tb_gen(args.module_src, args.json_src, "1")):
+        if(tb_gen(args.module_src, args.json_src)):
             with open("testbench.v", 'r', encoding='utf-8') as f:
                 print(f.read())
     else:
-        tb_gen(args.module_src, args.json_src, "1")
+        tb_gen(args.module_src, args.json_src)
