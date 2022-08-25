@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import argparse
 import json5
 import jsonschema
@@ -109,7 +110,7 @@ def module_instance(module_data):
 #===============================testbench formatter===============================#
 
 #===============================testvector generator===============================#
-def wave_interpreter(sig_info):
+def wave_interpreter(sig_info, index, cp=1):
     #Convert wavedrom signals to Verilog syntax
     high = "1hHu"
     low = "0lLd"
@@ -117,7 +118,7 @@ def wave_interpreter(sig_info):
     tab = "    "
     name = sig_info["name"]             #get signal name from argument "sig_info"
     json_wave = list(sig_info["wave"])  #get json wavedata from argument "sig_info"
-    delay = "@(negedge clk); "
+    delay = ["@(negedge clk); ", ("#"+ cp + " ")][index] #Sequential Logic Delay                #Non CLK-Dependent Logic Delay
     ret_string = ""                     #return String, Verilog State
 
     if name == "rst":
@@ -157,13 +158,13 @@ def wave_interpreter(sig_info):
         size = str(len(sig_info["data"][0]))
         for data in sig_info["data"]:
             ret_string += (tab + tab) #indentation
-            ret_string += ("@(negedge clk); "+ name + " = " + size + "'b" + data + ";\n")
+            ret_string += (delay + name + " = " + size + "'b" + data + ";\n")
 
 
     return ret_string
 
 
-def testvector_gen(json, cp):
+def testvector_gen(json, cp=1):
 
     #Return testvector states via rendering json
     tab = "    "
@@ -171,6 +172,7 @@ def testvector_gen(json, cp):
     input = []              #Input Signal list(testvector parameter)
     testvector_string = ""  #Testvector String
     stop_time = 0           #Simulation Stop Time
+    delay_parameter = 1
 
     start = (tab + "initial begin\n")
     end = (tab + "end\n\n")
@@ -193,18 +195,18 @@ def testvector_gen(json, cp):
         if string["name"] == "clk": 
             testvector_string += clk_gen
             input.remove(string)
+            delay_parameter = 0
 
     for string in input: #testvector generate
         testvector_string += start
-        testvector_string += wave_interpreter(string)
+        testvector_string += wave_interpreter(string, delay_parameter, cp)
         testvector_string += end
     
     for data in input: #set stop_time
         stop_time = max(stop_time,len(data["wave"]))
-
     testvector_string += (tab + "initial begin\n"
                          +(tab + tab) +"#" + str(stop_time * int(cp)) + "; $stop;\n"
-                         +(tab + tab) + "end\n")
+                         +(tab) + "end\n")
     
     return testvector_string
 #===============================testvector generator===============================#
