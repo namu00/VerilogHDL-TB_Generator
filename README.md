@@ -3,6 +3,13 @@
     >1. Review Python
     >2. Study Verilog
     >3. Make __*Testbench Generator*__ Using __*Python*__
++ ### Directory Information
+
+    |Directory|Description|  
+    |:---:|:--------:|  
+    |*Study*|Verilog & Python Study Directory |  
+    |*Verilog_Testcase*| Verilog TestSamples |
+    |*Wavedrom_Testcase*| Wavedrom json TestSamples |
 + ### Final Product
     >__*TB_Gen.py*__
 + ### Version Info
@@ -15,10 +22,3 @@
     *Ver 1.5.1*   Add Comment  
     *Ver 1.6*    Fix Testvector Syntax  
     *Ver 1.7*    Fix Errors 
-+ ### Directory Information
-
-    |Directory|Description|  
-    |:---:|:--------:|  
-    |*Study*|Verilog & Python Study Directory |  
-    |*Verilog_Testcase*| Verilog TestSamples |
-    |*Wavedrom_Testcase*| Wavedrom json TestSamples |
