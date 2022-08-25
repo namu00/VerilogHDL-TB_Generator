@@ -10,11 +10,11 @@
     |*Study*|Verilog & Python Study Directory |  
     |*Verilog_Testcase*| Verilog TestSamples |
     |*Wavedrom_Testcase*| Wavedrom json TestSamples |
-#
+# Product Info
 + ### Final Product
     >__*TB_Gen.py*__
 
-+ ### Version Info
++ ### Version Information
     *Ver 1.0*    Initial Release  
     *Ver 1.1*    Add Exception Handller  
     *Ver 1.2*    Add CLK Processing Block  
