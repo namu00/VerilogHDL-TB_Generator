@@ -1,4 +1,4 @@
-# 2022 Summer Study 
+# 2022 Summer Study (June 30th ~ August 31st)
 + ### Agenda
     >1. Review Python
     >2. Study Verilog
@@ -11,7 +11,7 @@
     |*Verilog_Testcase*| Verilog TestSamples |
     |*Wavedrom_Testcase*| Wavedrom json TestSamples |  
 
-# Product Info
+# Product Info.
 + ### Final Product
     >__*TB_Gen.py*__ 
 + ### Status
