@@ -228,9 +228,12 @@ def tb_gen(module, json, cp="1"):
         #Create module instance
         instance = "\n" + module_instance(v_data)
 
-        #Create Testvector via Wavedrom JSON
-        testvector = "\n" + testvector_gen(json, cp)
-        
+        try:
+            #Create Testvector via Wavedrom JSON
+            testvector = "\n" + testvector_gen(json, cp)
+        except:
+            return print_err("\t Testvector Generation Failed!")
+    
         #testbench contents
         tb = [
             "module testbench();\n",    #module testbench();
