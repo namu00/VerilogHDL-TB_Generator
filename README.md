@@ -30,5 +30,5 @@
     *Ver 1.5*    Add Simulation Stop Time  
     *Ver 1.5.1*   Add Comment  
     *Ver 1.6*    Fix Testvector Syntax  
-    *Ver 1.7*    Fix Minor Errors
+    *Ver 1.7*    Fix Minor Errors  
     *Ver 1.8*    Fix Timing Error
