@@ -1,4 +1,4 @@
-# 2022 Summer Study ### *(June 30th ~ August 31st)*
+# 2022 Summer Study  *(June 30th ~ August 31st)*
 + ### Agenda
     >1. Review Python
     >2. Study Verilog
