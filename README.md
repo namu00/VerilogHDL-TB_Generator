@@ -13,9 +13,9 @@
 
 # Product Info
 + ### Final Product
-    >__*TB_Gen.py*__
-    > ~Fix Errors~
-    >__All Testcase Passed!_
+    >__*TB_Gen.py*__  
+    > ~Fix Errors~  
+    >_All Testcase Passed!_
 
 + ### Version Information
     *Ver 1.0*    Initial Release  
