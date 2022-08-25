@@ -18,8 +18,8 @@
     > ~Adding CLK Processing Block~  
     > ~Adding BUS Processing Block~  
     > ~Fixing Verilog Syntax Error~  
-    > *Ver 1.7* Release!  
     >_All Testcase Passed!_  
+    > *Ver 1.7* Release  
 + ### Version Information
     *Ver 1.0*    Initial Release  
     *Ver 1.1*    Add Exception Handller  
