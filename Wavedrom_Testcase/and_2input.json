@@ -1,6 +1,6 @@
 {signal:
  [
- {name:"input_a", wave:"l.h."}, {name:"input_b", wave:"lhlh"} , 
+ {name:"a", wave:"l.h."}, {name:"b", wave:"lhlh"} , 
   {},
   {name:"out", wave:"l..h"}
   ]

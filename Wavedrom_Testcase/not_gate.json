@@ -1,11 +1,8 @@
 //Not Gate
 {signal:
 [ 
-  ["in",
-   {name: "input", wave: "h.l."}
-  ],
+   {name: "in", wave: "h.l."},
   {},
-  ["out",
-   {name: "output", wave: "l.h."}]
+   {name: "output", wave: "l.h."}
 ]
 }

@@ -1,18 +1,9 @@
 {signal:
  [
-  ["3input  NAND",
-  ["input",
-   {name:"input_a", wave:"l...h..."},
-   {name:"input_b", wave:"l.h.l.h."},
-   {name:"input_c", wave:"lhlhlhlh"}
-  ],
-   
+   {name:"a", wave:"l...h..."},
+   {name:"b", wave:"l.h.l.h."},
+   {name:"c", wave:"lhlhlhlh"},
   {},
-   
-  ["out",
    {name:"out", wave:"h......l"}
-  ]
-   
-  ]
  ]
 }

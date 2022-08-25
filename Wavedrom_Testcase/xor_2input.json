@@ -1,17 +1,8 @@
 {signal:
  [
-  ["2input  XOR",
-  ["input",
-   {name:"input_a", wave:"l.h."},
-   {name:"input_b", wave:"lhlh"} 
-  ],
-   
+   {name:"a", wave:"l.h."},
+   {name:"b", wave:"lhlh"} ,
   {},
-   
-  ["out",
    {name:"out", wave:"lh.l"}
   ]
-   
-  ]
- ]
 }
