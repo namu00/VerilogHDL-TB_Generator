@@ -1,0 +1,6 @@
+{signal:[
+  {name:"clk", wave:"P......."},
+  {name:"rst", wave:"lh......"},
+  {name:"t", wave:"h.....l."},
+  {},
+  {name:"out", wave:"lhlhlh.."}]}
