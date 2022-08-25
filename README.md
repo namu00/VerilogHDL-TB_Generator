@@ -1,4 +1,4 @@
-# 2022 Summer Study  
+# 2022 Summer Study 
 + ### Agenda
     >1. Review Python
     >2. Study Verilog
@@ -17,6 +17,11 @@
     > ~Fix Errors~  
     >_All Testcase Passed!_
 
++ ### Status
+    > ~Adding CLK Processing Block~
+    > ~Adding BUS Processing Block~
+    > ~Fixing Verilog Syntax Error~
+    >_All Testcase Passed!_
 + ### Version Information
     *Ver 1.0*    Initial Release  
     *Ver 1.1*    Add Exception Handller  
