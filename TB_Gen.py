@@ -2,7 +2,7 @@
 import argparse
 import json5
 import jsonschema
-import re
+
 __doc__ = """
 TB_Gen.py is a tool to create "testbench.v" file based on Wavedrom JSON.
 
@@ -50,10 +50,7 @@ def file_test(*name):
     else: return False
 
 def print_err(code):
-    RED = "\033[91m"
-    WHITE = "\033[37m"
-
-    print(RED+code+WHITE) #print Error Message
+    print("\033[91m"+code+"\033[37m") #print Error Message
     return False
 #===============================Exception Handller===============================#
 
@@ -89,11 +86,11 @@ def get_module_name(module_data):
     #Get module name from .v file
     #Return module name
     for string in module_data:
-        if (string.find("module") != -1):
+        if (string.find("module ") != -1):
             name = string.replace("\n","")
             name = name.replace(";","").split(" ")
             name = name[1]
-            return name.split("(")[0]
+            return name.split("(")[0].strip()
 
 def module_instance(module_data):
     #Return Module Instance State
@@ -110,61 +107,50 @@ def module_instance(module_data):
 #===============================testbench formatter===============================#
 
 #===============================testvector generator===============================#
-def wave_interpreter(sig_info, index, cp=1):
+def wave_interpreter(sig_info, has_it_clk, period):
     #Convert wavedrom signals to Verilog syntax
     high = "1hHu"
     low = "0lLd"
-
-    tab = "    "
+    tab = "        "
     name = sig_info["name"]             #get signal name from argument "sig_info"
-    json_wave = list(sig_info["wave"])  #get json wavedata from argument "sig_info"
-    delay = ["@(negedge clk); ", ("#"+ cp + " ")][index] #Sequential Logic Delay                #Non CLK-Dependent Logic Delay
-    ret_string = ""                     #return String, Verilog State
+    json_wave = sig_info["wave"]        #get json wavedata from argument "sig_info"
+    delay = [("#"+ period + "; "),"@(negedge clk); "][has_it_clk] # Select "Sequential Logic Delay" OR "Non CLK-Dependent Logic Delay"
+    repeat = 0                          #repeat counter
+    ret_str = ""                     #return String, Verilog State
 
-    if name == "rst":
-        for i in range(0,len(json_wave)):
-            data = ""
-            if i == 0:
-                data += (tab + tab)
-                data += (name + " = 1'b1;\n")
-            elif json_wave[i] in high:
-                data += (tab + tab)
-                data += (delay + name + " = 1'b1;\n")
-            elif json_wave[i] in low:
-                data += (tab + tab)
-                data += (delay + name + " = 1'b0;\n")
-            elif sig_info["wave"][2:].find("l") != -1:
-                data += prev_data
+    if sig_info.get("data") == None:
+        for c in json_wave:
+            if c == '.': repeat += 1
+            elif c in high:
+                ret_str += tab #Indent
+                if repeat != 0:
+                    ret_str += ("repeat("+str(repeat)+") " + delay + "\n" + tab)
+                ret_str += (name + " = 1'b1; " + delay + "\n")
+                repeat = 0
 
-            ret_string += data
-            prev_data = data
-
-    elif sig_info.get("data") == None:    #If it has not "data" field, Run Bellow
-        for i in range(0,len(json_wave)):
-            data = ""
-            if json_wave[i] in high:
-                data += (tab + tab)
-                data += (delay + name + " = 1'b1;\n")
-            elif json_wave[i] in low:
-                data += (tab + tab)
-                data += (delay + name + " = 1'b0;\n")
-            elif json_wave[i] == '.':
-                data += prev_data
-
-            ret_string += data
-            prev_data = data
-
-    elif sig_info.get("data") != None: #If it has "data" field, Run Bellow
+            elif c in low:
+                ret_str += tab
+                if repeat != 0:
+                    ret_str += ("repeat("+str(repeat)+") " + delay + "\n" + tab)
+                ret_str += (name + " = 1'b0; " + delay + "\n")
+                repeat = 0
+            
+    elif sig_info.get("data") != None:
+        prev = ""
         size = str(len(sig_info["data"][0]))
         for data in sig_info["data"]:
-            ret_string += (tab + tab) #indentation
-            ret_string += (delay + name + " = " + size + "'b" + data + ";\n")
+            if prev == data: repeat +=1
+            else:
+                ret_str += tab #Indent
+                if repeat != 0:
+                    ret_str += ("repeat("+str(repeat)+") " + delay + "\n" + tab)
+                ret_str += (delay + name + " = " + size + "'b" + data + "; \n" + tab)
+                prev = data
+                repeat = 0
 
+    return ret_str
 
-    return ret_string
-
-
-def testvector_gen(json, cp=1):
+def testvector_gen(json, period="2"):
 
     #Return testvector states via rendering json
     tab = "    "
@@ -172,14 +158,14 @@ def testvector_gen(json, cp=1):
     input = []              #Input Signal list(testvector parameter)
     testvector_string = ""  #Testvector String
     stop_time = 0           #Simulation Stop Time
-    delay_parameter = 1
+    has_it_clk = 0          #CLK Flag
 
     start = (tab + "initial begin\n")
     end = (tab + "end\n\n")
 
     clk_gen = (tab + "initial" #CLK state
-    + " clk = 1'b0;\n"
-    + tab + "always #" + cp + " clk = ~clk;\n\n")
+    + " clk = 1'b1;\n"
+    + tab + "always #" + period + " clk = ~clk;\n\n")
 
     with open(json) as f:
         #Load Json file
@@ -195,24 +181,25 @@ def testvector_gen(json, cp=1):
         if string["name"] == "clk": 
             testvector_string += clk_gen
             input.remove(string)
-            delay_parameter = 0
-
+            has_it_clk = 1
+    
     for string in input: #testvector generate
         testvector_string += start
-        testvector_string += wave_interpreter(string, delay_parameter, cp)
+        testvector_string += wave_interpreter(string, has_it_clk, period)
         testvector_string += end
     
     for data in input: #set stop_time
         stop_time = max(stop_time,len(data["wave"]))
+
     testvector_string += (tab + "initial begin\n"
-                         +(tab + tab) +"#" + str(stop_time * int(cp)) + "; $stop;\n"
-                         +(tab) + "end\n")
+                         +(tab + tab) +"#" + str(stop_time * int(period)) + "; $stop;\n"
+                         +tab + "end\n")
     
     return testvector_string
 #===============================testvector generator===============================#
 
 #===============================TESTBENCH generator===============================#
-def tb_gen(module, json, cp="1"):
+def tb_gen(module, json, period="1"):
     if file_test(module,json) == False:
         #File Extension Check Failed
         return print_err("\tFile Extension Error!")
@@ -230,12 +217,13 @@ def tb_gen(module, json, cp="1"):
 
         try:
             #Create Testvector via Wavedrom JSON
-            testvector = "\n" + testvector_gen(json, cp)
+            testvector = "\n" + testvector_gen(json, period)
         except:
             return print_err("\t Testvector Generation Failed!")
     
         #testbench contents
         tb = [
+            "`timescale 1ns/1ns\n\n",
             "module testbench();\n",    #module testbench();
             inout,                      #   input/output list
             instance,                   #   testunit instance
@@ -260,7 +248,7 @@ if __name__ == "__main__":
     parser.epilog = __doc__
     parser.add_argument("module_src", help="TestTarget VerilogHDL source file")
     parser.add_argument("json_src", help="WaveJSON source file")
-    parser.add_argument("-p", "--period", action="store_true",
+    parser.add_argument("-p", "--period", action="store",
                         help="Set Clock Period")
     parser.add_argument("-v", "--verbose", action="store_true",
                         help="Show generated result of testbench.")
@@ -270,7 +258,7 @@ if __name__ == "__main__":
     #Argument Sequence: [VerilogHDL].v [Wavedrom].json
     #Please Follow the Sequence.
     
-    if args.period:
+    if args.period != None:
         tb_gen(args.module_src, args.json_src, args.period)
 
     elif args.verbose:
