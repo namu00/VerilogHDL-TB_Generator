@@ -13,15 +13,12 @@
 
 # Product Info
 + ### Final Product
-    >__*TB_Gen.py*__  
-    > ~Fix Errors~  
-    >_All Testcase Passed!_
-
+    >__*TB_Gen.py*__ 
 + ### Status
-    > ~Adding CLK Processing Block~
-    > ~Adding BUS Processing Block~
-    > ~Fixing Verilog Syntax Error~
-    >_All Testcase Passed!_
+    > ~Adding CLK Processing Block~  
+    > ~Adding BUS Processing Block~  
+    > ~Fixing Verilog Syntax Error~  
+    >_All Testcase Passed!_  
 + ### Version Information
     *Ver 1.0*    Initial Release  
     *Ver 1.1*    Add Exception Handller  
