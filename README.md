@@ -17,7 +17,7 @@
 + ### Status
     > ~Adding CLK Processing Block~  
     > ~Adding BUS Processing Block~  
-    > ~Fixing Verilog Syntax Error~
+    > ~Fixing Verilog Syntax Error~  
     > ~Fixing Timing Error~  
     >_All Testcase Passed!_  
     > *Ver 1.8* Release  
