@@ -17,9 +17,10 @@
 + ### Status
     > ~Adding CLK Processing Block~  
     > ~Adding BUS Processing Block~  
-    > ~Fixing Verilog Syntax Error~  
-    >_All Testcase Passed!_  
-    > *Ver 1.7* Release  
+    > ~Fixing Verilog Syntax Error~
+    > ~Fixing Timing Error~  
+    >~_All Testcase Passed!_~
+    > *Ver 1.8* Release  
 + ### Version Information
     *Ver 1.0*    Initial Release  
     *Ver 1.1*    Add Exception Handller  
@@ -29,4 +30,5 @@
     *Ver 1.5*    Add Simulation Stop Time  
     *Ver 1.5.1*   Add Comment  
     *Ver 1.6*    Fix Testvector Syntax  
-    *Ver 1.7*    Fix Minor Errors 
+    *Ver 1.7*    Fix Minor Errors
+    *Ver 1.8*    Fix Timing Error
