@@ -64,17 +64,17 @@ def get_io(module_data):
 
     for string in data:
         data = ""
-        if (string.find("input ") != -1):
+        if (string.find("input ") != -1):           #Replace input_ --> reg
             data = string.replace("input", "reg")
             data += ";"
             inout.append(data)
 
-        elif (string.find("output reg ") != -1):
+        elif (string.find("output reg ") != -1):    #Replace output_reg_ --> wire
             data = string.replace("output reg", "wire")
             data += ";"
             inout.append(data)
 
-        elif (string.find("output ") != -1):
+        elif (string.find("output ") != -1):        #Replace output_ --> wire
             data = string.replace("output", "wire")
             data += ";"
             inout.append(data)
@@ -109,14 +109,14 @@ def module_instance(module_data):
 #===============================testvector generator===============================#
 def wave_interpreter(sig_info, has_it_clk, period):
     #Convert wavedrom signals to Verilog syntax
-    high = "1hHu"
-    low = "0lLd"
-    tab = "        "
+    high = "1hHu"                       #define High Signal
+    low = "0lLd"                        #define Low Signal
+    tab = "        "                    #Tabs for Indent
     name = sig_info["name"]             #get signal name from argument "sig_info"
     json_wave = sig_info["wave"]        #get json wavedata from argument "sig_info"
     delay = [("#"+ period + "; "),"@(negedge clk); "][has_it_clk] # Select "Sequential Logic Delay" OR "Non CLK-Dependent Logic Delay"
     repeat = 0                          #repeat counter
-    ret_str = ""                     #return String, Verilog State
+    ret_str = ""                        #return String, Verilog State
 
     if sig_info.get("data") == None:
         for c in json_wave:
@@ -150,8 +150,7 @@ def wave_interpreter(sig_info, has_it_clk, period):
 
     return ret_str
 
-def testvector_gen(json, period="2"):
-
+def testvector_gen(json, period):
     #Return testvector states via rendering json
     tab = "    "
     wave = None             #Wavedrome JSON data
@@ -173,26 +172,25 @@ def testvector_gen(json, period="2"):
         wave = json5.loads(data)
         jsonschema.Draft6Validator(wavejson_schema).validate(wave)
     
-    for string in wave["signal"]:   #input signal extraction
+    for string in wave["signal"]:       #input signal extraction
         if string == {}: break
-        else: input.append(string)
+        else: input.append(string)    
     
-    for string in input:            #clk generate & remove CLK from json data
-        if string["name"] == "clk": 
-            testvector_string += clk_gen
-            input.remove(string)
-            has_it_clk = 1
-    
-    for string in input: #testvector generate
-        testvector_string += start
-        testvector_string += wave_interpreter(string, has_it_clk, period)
-        testvector_string += end
-    
-    for data in input: #set stop_time
-        stop_time = max(stop_time,len(data["wave"]))
+    for string in input:                #Create Testvector
+        stop_time = max(stop_time,len(string["wave"]))*int(period)
 
+        if string["name"] == "clk":     #CLK Generation
+            testvector_string += clk_gen
+            has_it_clk = 1
+
+        else:                           #Create Testvector State
+            testvector_string += start
+            testvector_string += wave_interpreter(string, has_it_clk, period)
+            testvector_string += end
+        
+    if(has_it_clk): stop_time *= 2      #Becasue, Clock is consisted of High-Low Set
     testvector_string += (tab + "initial begin\n"
-                         +(tab + tab) +"#" + str(stop_time * int(period)) + "; $stop;\n"
+                         +(tab + tab) +"#" + str(stop_time) + "; $stop;\n"
                          +tab + "end\n")
     
     return testvector_string
