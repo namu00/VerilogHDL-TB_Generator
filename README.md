@@ -19,7 +19,7 @@
     > ~Adding BUS Processing Block~  
     > ~Fixing Verilog Syntax Error~  
     > ~Fixing Timing Error~  
-    > ~Fixing Stop Time Error~  
+    > ~Fixing Sim Stop Error~  
     >_All Testcase Passed!_  
     > *Ver 1.4.5* Release  
 + ### Version Information
@@ -34,4 +34,4 @@
     *Ver 1.4.3*    Fix Minor Errors  
     *Ver 1.4.4*    Fix Timing Error  
     *Ver 1.4.5*    Algorithm Optimization  
-    *Ver 1.4.6*    Fix Stop Time Error
+    *Ver 1.4.6*    Fix Sim Stop Error
