@@ -20,7 +20,7 @@
     > ~Fixing Verilog Syntax Error~  
     > ~Fixing Timing Error~  
     > ~Fixing Sim Stop Error~  
-    >_!All Testcase Passed!_  
+    >_All Testcase Passed!_  
     > *Ver 1.4.5* Release  
 + ### Version Information
     *Ver 1.0.0*    Initial Release  
