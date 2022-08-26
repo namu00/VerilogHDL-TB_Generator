@@ -20,15 +20,16 @@
     > ~Fixing Verilog Syntax Error~  
     > ~Fixing Timing Error~  
     >_All Testcase Passed!_  
-    > *Ver 1.8* Release  
+    > *Ver 1.4.5* Release  
 + ### Version Information
-    *Ver 1.0*    Initial Release  
-    *Ver 1.1*    Add Exception Handller  
-    *Ver 1.2*    Add CLK Processing Block  
-    *Ver 1.3*    Add BUS Processing Block  
-    *Ver 1.4*    Fix Syntax Error  
-    *Ver 1.5*    Add Simulation Stop Time  
-    *Ver 1.5.1*   Add Comment  
-    *Ver 1.6*    Fix Testvector Syntax  
-    *Ver 1.7*    Fix Minor Errors  
-    *Ver 1.8*    Fix Timing Error
+    *Ver 1.0.0*    Initial Release  
+    *Ver 1.1.0*    Add Exception Handller  
+    *Ver 1.2.0*    Add CLK Processing Block  
+    *Ver 1.3.0*    Add BUS Processing Block  
+    *Ver 1.3.1*    Fix Syntax Error  
+    *Ver 1.4.0*    Add Simulation Stop Time  
+    *Ver 1.4.1*    Add Comment  
+    *Ver 1.4.2*    Fix Testvector Syntax  
+    *Ver 1.4.3*    Fix Minor Errors  
+    *Ver 1.4.4*    Fix Timing Error
+    *Ver 1.4.5*    Algorithm Optimization
