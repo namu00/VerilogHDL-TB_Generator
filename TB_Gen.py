@@ -177,7 +177,7 @@ def testvector_gen(json, period):
         else: input.append(string)    
     
     for string in input:                #Create Testvector
-        stop_time = max(stop_time,len(string["wave"]))*int(period)
+        stop_time = max(stop_time,len(string["wave"]))
 
         if string["name"] == "clk":     #CLK Generation
             testvector_string += clk_gen
@@ -187,7 +187,8 @@ def testvector_gen(json, period):
             testvector_string += start
             testvector_string += wave_interpreter(string, has_it_clk, period)
             testvector_string += end
-        
+    
+    stop_time = stop_time * int(period)
     if(has_it_clk): stop_time *= 2      #Becasue, Clock is consisted of High-Low Set
     testvector_string += (tab + "initial begin\n"
                          +(tab + tab) +"#" + str(stop_time) + "; $stop;\n"
