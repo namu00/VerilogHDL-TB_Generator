@@ -19,6 +19,7 @@
     > ~Adding BUS Processing Block~  
     > ~Fixing Verilog Syntax Error~  
     > ~Fixing Timing Error~  
+    > ~Fixing Stop Time Error~
     >_All Testcase Passed!_  
     > *Ver 1.4.5* Release  
 + ### Version Information
@@ -32,4 +33,5 @@
     *Ver 1.4.2*    Fix Testvector Syntax  
     *Ver 1.4.3*    Fix Minor Errors  
     *Ver 1.4.4*    Fix Timing Error  
-    *Ver 1.4.5*    Algorithm Optimization
+    *Ver 1.4.5*    Algorithm Optimization  
+    *Ver 1.4.6*    Fix Stop Time Error
