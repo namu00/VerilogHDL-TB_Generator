@@ -95,7 +95,7 @@ def get_module_name(module_data):
 def module_instance(module_data):
     #Return Module Instance State
     m_name = get_module_name(module_data) #get module name
-    instance_string = "    "
+    instance_string = "\n    "
     for string in module_data:
         if (string.find("module ") != -1):
             instance_string += string.replace(m_name,"test_unit") 
@@ -155,7 +155,7 @@ def testvector_gen(json, period):
     tab = "    "
     wave = None             #Wavedrome JSON data
     input = []              #Input Signal list(testvector parameter)
-    testvector_string = ""  #Testvector String
+    testvector_string = "\n"  #Testvector String
     stop_time = 0           #Simulation Stop Time
     has_it_clk = 0          #CLK Flag
 
@@ -212,11 +212,11 @@ def tb_gen(module, json, period="1"):
         inout = get_io(v_data)
 
         #Create module instance
-        instance = "\n" + module_instance(v_data)
+        instance = module_instance(v_data)
 
         try:
             #Create Testvector via Wavedrom JSON
-            testvector = "\n" + testvector_gen(json, period)
+            testvector = testvector_gen(json, period)
         except:
             return print_err("\t Testvector Generation Failed!")
     
