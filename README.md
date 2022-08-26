@@ -31,5 +31,5 @@
     *Ver 1.4.1*    Add Comment  
     *Ver 1.4.2*    Fix Testvector Syntax  
     *Ver 1.4.3*    Fix Minor Errors  
-    *Ver 1.4.4*    Fix Timing Error
+    *Ver 1.4.4*    Fix Timing Error  
     *Ver 1.4.5*    Algorithm Optimization
