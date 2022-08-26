@@ -248,7 +248,7 @@ if __name__ == "__main__":
     parser.add_argument("module_src", help="TestTarget VerilogHDL source file")
     parser.add_argument("json_src", help="WaveJSON source file")
     parser.add_argument("-p", "--period", action="store",
-                        help="Set Clock Period")
+                        help="Set Clock/Delay Period")
     parser.add_argument("-v", "--verbose", action="store_true",
                         help="Show generated result of testbench.")
     args = parser.parse_args()
