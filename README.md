@@ -19,7 +19,7 @@
     > ~Adding BUS Processing Block~  
     > ~Fixing Verilog Syntax Error~  
     > ~Fixing Timing Error~  
-    > ~Fixing Stop Time Error~
+    > ~Fixing Stop Time Error~  
     >_All Testcase Passed!_  
     > *Ver 1.4.5* Release  
 + ### Version Information
