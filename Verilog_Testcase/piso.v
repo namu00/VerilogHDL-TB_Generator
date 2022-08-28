@@ -13,5 +13,5 @@ module piso(clk, rst, ld, in, q);
         end
     end
 
-    assign q  = (ld == 1'b1) ? 1'b0 : d_ff[3];
+    assign q  = d_ff[3];
 endmodule
