@@ -144,7 +144,7 @@ def wave_interpreter(sig_info, has_it_clk, period):
                 ret_str += tab #Indent
                 if repeat != 0:
                     ret_str += ("repeat("+str(repeat)+") " + delay + "\n" + tab)
-                ret_str += (delay + name + " = " + size + "'b" + data + "; \n" + tab)
+                ret_str += (name + " = " + size + "'b" + data + "; \n" + tab)
                 prev = data
                 repeat = 0
 
