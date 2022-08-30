@@ -27,12 +27,13 @@
     > 2. Split Input/Output Signals Using "{}".  
     > 3. Please Match the __*Signal Names in JSON*__ With __*module.v*__.    
     > 4. Please Keep Argument Sequence.  
+      
 
 ```
 //Json Example
 [signal:{
     {name:"input",wave:"hlhl"},
-    {}.
+    {},
     {name:"output",wave:"lhlh}
   }
 ]    
