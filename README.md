@@ -24,11 +24,11 @@
 
 > ## Run Example  
 ```bash
-# $ > tbgen.py                [TARGET_MODULE.v] [WAVEDROM.json] 
-# $ > tbgen.py -v             [TARGET_MODULE.v] [WAVEDROM.json]
-# $ > tbgen.py --verbose      [TARGET_MODULE.v] [WAVEDROM.json]
-# $ > tbgen.py -p [NUM]       [TARGET_MODULE.v] [WAVEDROM.json]
-# $ > tbgen.py --period [NUM] [TARGET_MODULE.v] [WAVEDROM.json]
+# $ > TB_Gen.py                [TARGET_MODULE.v] [WAVEDROM.json] 
+# $ > TB_Gen.py -v             [TARGET_MODULE.v] [WAVEDROM.json]
+# $ > TB_Gen.py --verbose      [TARGET_MODULE.v] [WAVEDROM.json]
+# $ > TB_Gen.py -p [NUM]       [TARGET_MODULE.v] [WAVEDROM.json]
+# $ > TB_Gen.py --period [NUM] [TARGET_MODULE.v] [WAVEDROM.json]
 ```
 > ## Json Example  
 ```json
