@@ -16,13 +16,13 @@
     >__*TB_Gen.py*__ 
 
 + ### Usage  
-    >$ # tbgen.py                [TARGET_MODULE.v] [WAVEDROM.json]  *or*  
-    >$ # tbgen.py -v             [TARGET_MODULE.v] [WAVEDROM.json]  *or*  
-    >$ # tbgen.py --verbose      [TARGET_MODULE.v] [WAVEDROM.json]  *or*  
-    >$ # tbgen.py -p [NUM]       [TARGET_MODULE.v] [WAVEDROM.json]  *or*  
-    >$ # tbgen.py --period [NUM] [TARGET_MODULE.v] [WAVEDROM.json]  
+    >$ # tbgen.py                [TARGET_MODULE.v] [WAVEDROM.json]  *or*  
+    >$ # tbgen.py -v             [TARGET_MODULE.v] [WAVEDROM.json]  *or*  
+    >$ # tbgen.py --verbose      [TARGET_MODULE.v] [WAVEDROM.json]  *or*  
+    >$ # tbgen.py -p [NUM]       [TARGET_MODULE.v] [WAVEDROM.json]  *or*  
+    >$ # tbgen.py --period [NUM] [TARGET_MODULE.v] [WAVEDROM.json]  
 
-    >__PLEASE FOLLOW RULES BELLOW__
+    >        __PLEASE FOLLOW RULES BELLOW__
     > 1. Do not Designate Groups in Wavdrom.  
     > 2. Please Match the *Signal Names in JSON* With *module.v*.  
     > 3. Please Keep Argument Sequence.  
