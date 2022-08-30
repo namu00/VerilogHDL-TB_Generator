@@ -31,11 +31,10 @@
 
 ```
 //Json Example
-[signal:{
-    //Do not designate Groups
-    {name:"input",wave:"hlhl"}, //input
+[signal:{ //Do not designate Groups
+    {name:"input",wave:"hlhl"}, //input list
     {},                         //Split
-    {name:"output",wave:"lhlh}  //output
+    {name:"output",wave:"lhlh}  //output list
   }
 ]    
 ```
