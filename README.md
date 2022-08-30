@@ -17,13 +17,18 @@
 
 + ### Usage  
 ```bash
-# or $ clear
+    tbgen.py                [TARGET_MODULE.v] [WAVEDROM.json] or
+    tbgen.py -v             [TARGET_MODULE.v] [WAVEDROM.json] or
+    tbgen.py --verbose      [TARGET_MODULE.v] [WAVEDROM.json] or
+    tbgen.py -p [NUM]       [TARGET_MODULE.v] [WAVEDROM.json] or
+    tbgen.py -period [NUM]  [TARGET_MODULE.v] [WAVEDROM.json]
 ```
-    >        __PLEASE FOLLOW RULES BELLOW__
-    > 1. Do not Designate Groups in Wavdrom.  
-    > 2. Split Input/Output Signals Using "{}".  
-    > 3. Please Match the __*Signal Names in JSON*__ With __*module.v*__.    
-    > 4. Please Keep Argument Sequence.  
+
+>        __PLEASE FOLLOW RULES BELLOW__
+> 1. Do not Designate Groups in Wavdrom.  
+> 2. Split Input/Output Signals Using "{}".  
+> 3. Please Match the __*Signal Names in JSON*__ With __*module.v*__.    
+> 4. Please Keep Argument Sequence.  
       
 
 ```json
