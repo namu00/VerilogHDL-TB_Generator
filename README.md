@@ -34,4 +34,5 @@
     *Ver 1.4.3*    Patch Minor Errors  
     *Ver 1.4.4*    Patch Timing Error  
     *Ver 1.4.5*    Algorithm Optimization  
-    *Ver 1.4.6*    Patch Sim Stop Error
+    *Ver 1.4.6*    Patch Sim Stop Error  
+    *Ver 1.4.7*    Patch Indent Error & Rename Functions
