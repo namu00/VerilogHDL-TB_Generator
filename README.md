@@ -17,11 +17,11 @@
 
 + ### Usage  
 ```bash
-> # $ tbgen.py                [TARGET_MODULE.v] [WAVEDROM.json] 
-> # $ tbgen.py -v             [TARGET_MODULE.v] [WAVEDROM.json]
-> # $ tbgen.py --verbose      [TARGET_MODULE.v] [WAVEDROM.json]
-> # $ tbgen.py -p [NUM]       [TARGET_MODULE.v] [WAVEDROM.json]
-> # $ tbgen.py --period [NUM] [TARGET_MODULE.v] [WAVEDROM.json]
+# $ > tbgen.py                [TARGET_MODULE.v] [WAVEDROM.json] 
+# $ > tbgen.py -v             [TARGET_MODULE.v] [WAVEDROM.json]
+# $ > tbgen.py --verbose      [TARGET_MODULE.v] [WAVEDROM.json]
+# $ > tbgen.py -p [NUM]       [TARGET_MODULE.v] [WAVEDROM.json]
+# $ > tbgen.py --period [NUM] [TARGET_MODULE.v] [WAVEDROM.json]
 ```
 
 >        __PLEASE FOLLOW RULES BELLOW__
