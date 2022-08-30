@@ -18,7 +18,7 @@
 + ### Usage
 >  __PLEASE FOLLOW RULES BELLOW__
 > 1. Do not Designate Groups in Wavdrom.  
-> 2. Split Input/Output Signals Using "{ }".  
+> 2. Split Input/Output Signals Using "{ }" in Wavedrom.  
 > 3. Please Match the __*Signal Names in JSON*__ With __*module.v*__.    
 > 4. Please Keep Argument Sequence.  
 
