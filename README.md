@@ -29,12 +29,12 @@
     > 4. Please Keep Argument Sequence.  
       
 
-```javascript
-//Json Example
-[signal:{ //Do not designate Groups
-    {name:"input",wave:"hlhl"}, //input list
+```json
+//Json Example, Not_Gate.json
+["signal":{ //Do not designate Groups
+    {"name":"input", "wave":"hlhl"}, //input list
     {},                         //Split
-    {name:"output",wave:"lhlh"} //output list
+    {"name":"output", "wave":"lhlh"} //output list
   }
 ]    
 ```
