@@ -16,7 +16,6 @@
     >__*TB_Gen.py*__ 
 
 + ### Usage
-
 >  __PLEASE FOLLOW RULES BELLOW__
 > 1. Do not Designate Groups in Wavdrom.  
 > 2. Split Input/Output Signals Using "{ }".  
