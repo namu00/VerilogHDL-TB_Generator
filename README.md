@@ -29,12 +29,12 @@
     > 4. Please Keep Argument Sequence.  
       
 
-```json
+```javascript
 //Json Example
 [signal:{ //Do not designate Groups
     {name:"input",wave:"hlhl"}, //input list
     {},                         //Split
-    {name:"output",wave:"lhlh"}  //output list
+    {name:"output",wave:"lhlh"} //output list
   }
 ]    
 ```
