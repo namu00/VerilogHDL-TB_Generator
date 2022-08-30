@@ -31,9 +31,9 @@
 
 ```json
 "Json Example, Not_Gate.json"
-["signal":{ "Do not designate Groups"
+["signal":{                          "Do not designate Groups"
     {"name":"input", "wave":"hlhl"}, "input list"
-    {},                         "Split"
+    {},                              "Split"
     {"name":"output", "wave":"lhlh"} "output list"
   }
 ]    
