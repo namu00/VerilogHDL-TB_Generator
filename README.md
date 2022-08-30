@@ -32,9 +32,10 @@
 ```
 //Json Example
 [signal:{
-    {name:"input",wave:"hlhl"},
-    {},
-    {name:"output",wave:"lhlh}
+    //Do not designate Groups
+    {name:"input",wave:"hlhl"}, //input
+    {},                         //Split
+    {name:"output",wave:"lhlh}  //output
   }
 ]    
 ```
