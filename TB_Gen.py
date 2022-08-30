@@ -144,13 +144,13 @@ def wave_interpreter(sig_info, has_it_clk, period):
                 ret_str += tab #Indent
                 if repeat != 0:
                     ret_str += ("repeat("+str(repeat)+") " + delay + "\n" + tab)
-                ret_str += (name + " = " + size + "'b" + data + ";" + delay + "\n")
+                ret_str += (name + " = " + size + "'b" + data + "; " + delay + "\n")
                 prev = data
                 repeat = 0
 
     return ret_str
 
-def testvector_gen(json, period):
+def tv_gen(json, period):
     #Return testvector states via rendering json
     tab = "    "
     wave = None             #Wavedrome JSON data
@@ -216,7 +216,7 @@ def tb_gen(module, json, period="1"):
 
         try:
             #Create Testvector via Wavedrom JSON
-            testvector = testvector_gen(json, period)
+            testvector = tv_gen(json, period)
         except:
             return print_err("\t Testvector Generation Failed!")
     
