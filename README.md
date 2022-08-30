@@ -21,7 +21,7 @@
     tbgen.py -v             [TARGET_MODULE.v] [WAVEDROM.json] or
     tbgen.py --verbose      [TARGET_MODULE.v] [WAVEDROM.json] or
     tbgen.py -p [NUM]       [TARGET_MODULE.v] [WAVEDROM.json] or
-    tbgen.py -period [NUM]  [TARGET_MODULE.v] [WAVEDROM.json]
+    tbgen.py --period [NUM] [TARGET_MODULE.v] [WAVEDROM.json]
 ```
 
 >        __PLEASE FOLLOW RULES BELLOW__
