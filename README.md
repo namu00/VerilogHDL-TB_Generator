@@ -15,7 +15,14 @@
 + ### Final Product
     >__*TB_Gen.py*__ 
 
-+ ### Usage  
++ ### Usage
+
+>        __PLEASE FOLLOW RULES BELLOW__
+> 1. Do not Designate Groups in Wavdrom.  
+> 2. Split Input/Output Signals Using "{ }".  
+> 3. Please Match the __*Signal Names in JSON*__ With __*module.v*__.    
+> 4. Please Keep Argument Sequence.  
+        
 ```bash
 # $ > tbgen.py                [TARGET_MODULE.v] [WAVEDROM.json] 
 # $ > tbgen.py -v             [TARGET_MODULE.v] [WAVEDROM.json]
@@ -23,13 +30,6 @@
 # $ > tbgen.py -p [NUM]       [TARGET_MODULE.v] [WAVEDROM.json]
 # $ > tbgen.py --period [NUM] [TARGET_MODULE.v] [WAVEDROM.json]
 ```
-
->        __PLEASE FOLLOW RULES BELLOW__
-> 1. Do not Designate Groups in Wavdrom.  
-> 2. Split Input/Output Signals Using "{ }".  
-> 3. Please Match the __*Signal Names in JSON*__ With __*module.v*__.    
-> 4. Please Keep Argument Sequence.  
-      
 
 ```json
 "Json Example"
