@@ -23,7 +23,7 @@
 > 3. Please Match the __*Signal Names in JSON*__ With __*module.v*__.    
 > 4. Please Keep Argument Sequence.  
 
-> # Usage
+> ## Run Example  
 ```bash
 # $ > tbgen.py                [TARGET_MODULE.v] [WAVEDROM.json] 
 # $ > tbgen.py -v             [TARGET_MODULE.v] [WAVEDROM.json]
@@ -31,7 +31,7 @@
 # $ > tbgen.py -p [NUM]       [TARGET_MODULE.v] [WAVEDROM.json]
 # $ > tbgen.py --period [NUM] [TARGET_MODULE.v] [WAVEDROM.json]
 ```
-> # Json Example
+> ## Json Example  
 ```json
 "Json Example"
 ["signal":{                          "# Do not designate Groups"
