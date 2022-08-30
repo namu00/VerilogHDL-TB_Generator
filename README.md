@@ -24,7 +24,7 @@
 
     >        __PLEASE FOLLOW RULES BELLOW__
     > 1. Do not Designate Groups in Wavdrom.  
-    > 2. Please Match the *Signal Names in JSON* With *module.v*.  
+    > 2. Please Match the __*Signal Names in JSON*__ With __*module.v*__.    
     > 3. Please Keep Argument Sequence.  
 
 + ### Status
