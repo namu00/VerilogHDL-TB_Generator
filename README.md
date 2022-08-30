@@ -17,12 +17,13 @@
 
 + ### Usage
 
->        __PLEASE FOLLOW RULES BELLOW__
+>    __PLEASE FOLLOW RULES BELLOW__
 > 1. Do not Designate Groups in Wavdrom.  
 > 2. Split Input/Output Signals Using "{ }".  
 > 3. Please Match the __*Signal Names in JSON*__ With __*module.v*__.    
 > 4. Please Keep Argument Sequence.  
-        
+
+> # Usage
 ```bash
 # $ > tbgen.py                [TARGET_MODULE.v] [WAVEDROM.json] 
 # $ > tbgen.py -v             [TARGET_MODULE.v] [WAVEDROM.json]
@@ -30,7 +31,7 @@
 # $ > tbgen.py -p [NUM]       [TARGET_MODULE.v] [WAVEDROM.json]
 # $ > tbgen.py --period [NUM] [TARGET_MODULE.v] [WAVEDROM.json]
 ```
-
+> # Json Example
 ```json
 "Json Example"
 ["signal":{                          "# Do not designate Groups"
