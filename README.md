@@ -24,9 +24,19 @@
 
     >        __PLEASE FOLLOW RULES BELLOW__
     > 1. Do not Designate Groups in Wavdrom.  
-    > 2. Please Match the __*Signal Names in JSON*__ With __*module.v*__.    
-    > 3. Please Keep Argument Sequence.  
+    > 2. Split Input/Output Signals Using "{}".  
+    > 3. Please Match the __*Signal Names in JSON*__ With __*module.v*__.    
+    > 4. Please Keep Argument Sequence.  
 
+```
+//Json Example
+[signal:{
+    {name:"input",wave:"hlhl"},
+    {}.
+    {name:"output",wave:"lhlh}
+  }
+]    
+```
 + ### Status
     > ~Adding CLK Processing Block~  
     > ~Adding BUS Processing Block~  
