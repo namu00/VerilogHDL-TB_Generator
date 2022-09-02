@@ -34,7 +34,7 @@
 ```json
 "Json Example"
 ["signal":{                          "# Do not designate Groups"
-    {"name":"input", "wave":"hlhl"}, "# input list, Match Name with Signals Used in Verilog Module"
+    {"name":"input", "wave":"hlhl"}, "# input list, Match Name with Signal(s) Used in Verilog Module"
     {},                              "# Split"
     {"name":"output", "wave":"lhlh"} "# output list"
   }
@@ -49,6 +49,7 @@
     > ~Fixing Sim Stop Error~  
     >_All Testcase Passed!_  
     > *Ver 1.4.5* Release  
+
 + ### Version Information
     *Ver 1.0.0*    Initial Release  
     *Ver 1.1.0*    Add Exception Handller    
