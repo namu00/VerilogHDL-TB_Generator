@@ -13,7 +13,7 @@
 
 # Product Info.
 + ### Final Product
-    >__*TB_Gen.py*__ 
+>__*TB_Gen.py*__ 
 
 + ### Usage
 >  __PLEASE FOLLOW RULES BELLOW__
