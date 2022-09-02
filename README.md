@@ -34,7 +34,7 @@
 ```json
 "Json Example"
 ["signal":{                          "# Do not designate Groups"
-    {"name":"input", "wave":"hlhl"}, "# input list, Match Name with Signals Used in Module"
+    {"name":"input", "wave":"hlhl"}, "# input list, Match Name with Signals Used in Verilog Module"
     {},                              "# Split"
     {"name":"output", "wave":"lhlh"} "# output list"
   }
