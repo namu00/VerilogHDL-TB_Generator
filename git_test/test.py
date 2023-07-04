@@ -1,1 +1,0 @@
-print("This is Python file for git push test")
